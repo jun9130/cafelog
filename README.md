@@ -1,24 +1,59 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# データベース設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false, unique: true|
+|user_image|string||
+|profile_description|text||
+|password|string|null: false|
 
-Things you may want to cover:
+### Association
+- has_many :cafes
+- has_many :reviews
 
-* Ruby version
+## shopsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|access|string||
+|address|string||
+|business_hours|string||
+|holiday|string||
+|seat|string||
+|smoking|string||
+|user|references|foreign_key: true|
 
-* System dependencies
+### Association
+- belongs_to :user
+- has_many :cafe_images
 
-* Configuration
+## shop_imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string||
+|cafe|references|foreign_key: true|
 
-* Database creation
+### Association
+- belongs_to :cafe
 
-* Database initialization
+## reviewsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text||
+|user|references|foreign_key: true|
+|cafe|references|foreign_key: true|
 
-* How to run the test suite
+### Association
+- belongs_to :user
+- belongs_to :cafe
 
-* Services (job queues, cache servers, search engines, etc.)
+## tagsテーブル
 
-* Deployment instructions
+### Association
 
-* ...
+## likesテーブル
+
+### Association
