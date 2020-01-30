@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: cafelog_production
-  username: cafelog
-  password: <%= ENV['CAFELOG_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
