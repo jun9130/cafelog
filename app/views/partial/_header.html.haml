@@ -1,5 +1,5 @@
 %nav.navbar.navbar-expand-lg.navbar-light.fixed-top.nav-background
-  = link_to "Cafelog", "#",class: "navbar-brand text-white font-weight-bold"
+  = link_to "Cafelog", root_path, class: "navbar-brand text-white font-weight-bold"
   %button.navbar-toggler{"aria-controls" => "Navber", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#Navber", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #Navber.collapse.navbar-collapse 
@@ -8,8 +8,8 @@
         = link_to "探す", "#", class: "nav-link text-white"
     %ul.navbar-nav
       %li.nav-item
-        = link_to "新規会員登録", "#", class: 'nav-link text-white'
+        = link_to "新規会員登録", new_user_registration_path, class: 'nav-link text-white'
       %li.nav-item
-        = link_to "ログイン", "#", class: 'nav-link text-white'
+        = link_to "ログイン", new_user_session_path, class: 'nav-link text-white'
       %li.nav-item
         = link_to "かんたんログイン", "#", class: 'nav-link text-white'
