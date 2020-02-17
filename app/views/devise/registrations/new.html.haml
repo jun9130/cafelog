@@ -11,7 +11,7 @@
         = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
       .form-group
         = f.label :password, "パスワード"
-        %i (英数字6文字以上)
+        %i (6文字以上)
         = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
         - if @minimum_password_length
           %small.form-text.text-muted= t('devise.shared.minimum_password_length', count: @minimum_password_length)
