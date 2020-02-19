@@ -1,4 +1,4 @@
-%nav.navbar.navbar-expand-lg.navbar-light.fixed-top.nav-background
+%nav.navbar.navbar-expand-lg.navbar-light
   = link_to "Cafelog", root_path, class: "navbar-brand text-white font-weight-bold"
   %button.navbar-toggler{"aria-controls" => "Navber", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#Navber", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
@@ -6,10 +6,19 @@
     %ul.navbar-nav.mr-auto.mt-2.mt-lg-0
       %li.nav-item
         = link_to "探す", "#", class: "nav-link text-white"
-    %ul.navbar-nav
-      %li.nav-item
-        = link_to "新規会員登録", new_user_registration_path, class: 'nav-link text-white'
-      %li.nav-item
-        = link_to "ログイン", new_user_session_path, class: 'nav-link text-white'
-      %li.nav-item
-        = link_to "かんたんログイン", "#", class: 'nav-link text-white'
+    -if user_signed_in?    
+      %ul.navbar-nav
+        %li.nav-item
+          = link_to current_user.name, "", class: 'nav-link text-white'
+        %li.nav-item
+          = link_to "投稿する", "", class: 'nav-link text-white'
+        %li.nav-item
+          = link_to "ログアウト", destroy_user_session_path, method: :delete,  class: 'nav-link text-white'
+    -else
+      %ul.navbar-nav
+        %li.nav-item
+          = link_to "新規会員登録", new_user_registration_path, class: 'nav-link text-white'
+        %li.nav-item
+          = link_to "ログイン", new_user_session_path, class: 'nav-link text-white'
+        %li.nav-item
+          = link_to "かんたんログイン", "#", class: 'nav-link text-white'
