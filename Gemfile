@@ -70,6 +70,7 @@ gem 'tzinfo-data'
 
 gem 'haml-rails'
 gem 'devise'
+gem 'font-awesome-sass'
 
 group :production do
   gem 'unicorn', '5.4.1'
