@@ -1,0 +1,21 @@
+.container.mt-5
+  .mypage
+    .upper-mypage.row
+      .upper-mypage__left.col-4
+        .upper-mypage__left__avatar
+          %img.rounded-circle.mb-5{alt: "avatar", src: "https://placehold.jp/250x250.png"}/
+
+      .upper-mypage__right.col-8
+        .upper-mypage__right__username.pt-5
+          名前
+        %button.mt-2.btn.btn-secondary.btn-sm{type: "button"}
+          編集
+        .upper-mypage__right__profile.pt-5
+          プロフィール
+    %ul.nav.nav-pills.nav-fill
+      %li.nav-item
+        %a.nav-link.active{href: "#"} 投稿
+      %li.nav-item
+        %a.nav-link{href: "#"} いいね
+
+
