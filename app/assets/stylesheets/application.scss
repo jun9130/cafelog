@@ -1,5 +1,7 @@
 @import "reset";
 @import "confing/colors";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "devise.scss";
 
 @import "mixin/toppage";
@@ -8,3 +10,5 @@
 @import "modules/flash";
 
 @import "shops/index";
+
+@import "users/show";
