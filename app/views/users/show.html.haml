@@ -7,11 +7,12 @@
 
       .upper-mypage__right.col-8
         .upper-mypage__right__username.pt-5
-          名前
+          = @user.name
         %button.mt-2.btn.btn-secondary.btn-sm{type: "button"}
-          編集
+          = link_to "編集", edit_user_path(current_user)
         .upper-mypage__right__profile.pt-5
-          プロフィール
+          = @user.profile_description
+          
     %ul.nav.nav-pills.nav-fill
       %li.nav-item
         %a.nav-link.active{href: "#"} 投稿
