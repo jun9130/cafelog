@@ -2,7 +2,9 @@
 @import "confing/colors";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "devise.scss";
+
+@import "devise/devise.scss";
+@import "devise/edit.scss";
 
 @import "mixin/toppage";
 

@@ -9,7 +9,7 @@
     -if user_signed_in?    
       %ul.navbar-nav
         %li.nav-item
-          = link_to current_user.name, "", class: 'nav-link text-white'
+          = link_to current_user.name, user_path(current_user), class: 'nav-link text-white'
         %li.nav-item
           = link_to "投稿する", "", class: 'nav-link text-white'
         %li.nav-item
