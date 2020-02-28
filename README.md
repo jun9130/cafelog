@@ -28,7 +28,7 @@
 
 ### Association
 - belongs_to :user
-- has_many :cafe_images
+- has_many :shop_images
 
 ## shop_imagesテーブル
 |Column|Type|Options|
