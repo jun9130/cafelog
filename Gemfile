@@ -72,6 +72,8 @@ gem 'tzinfo-data'
 gem 'devise'
 gem 'font-awesome-sass'
 gem 'haml-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :production do
   gem 'unicorn', '5.4.1'
