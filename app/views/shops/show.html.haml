@@ -2,56 +2,57 @@
   .shop
     .shop__data.pt-5.pb-3
       .shop__data__upper__name
-        aaaaaaaaaaa
+        = @shop.name
       .shop__data__upper__stars
         評価
     .shop__content.d-flex.mb-5
       .shop__photo
-        = image_tag 'https://placehold.jp/640x320.png', size: "640x320", alt: "メイン写真"
+        - if @image 
+          =image_tag @image.image_url, size: "430x320", alt: "メイン画像", class: "mainImage"
+        - else
+          =image_tag 'http://placehold.jp/eeeeee/cccccc/430x320.png?text=No%20Image', size: "430x320", alt: "メイン画像", class: "mainImage"
       %table.table.ml-3
         %tr
           %th 
             最寄駅
             %td
-              渋谷
+              = @shop.access
         %tr
           %th 
             住所
             %td
-              東京都渋谷区渋谷２丁目１５−１
+              = @shop.address
         %tr
           %th 
             営業時間
             %td
-              08:00-23:00
+              = @shop.business_hours
         %tr
           %th 
             定休日
             %td
-              無休
+              = @shop.holiday
         %tr
           %th 
             席数
             %td
-              90席
+              = "#{@shop.seat}席"
         %tr
           %th 
-            その他
+            タグ
             %td
-              禁煙
+              禁煙 仮置き
     .shop__post-photo
       .shop__post-photo__header
         .shop__post-photo__header__title.mb-3
           写真
       .shop__post-photo__content
-        = image_tag 'https://placehold.jp/200x150.png', size: "200x150", alt: "他の写真"
-        = image_tag 'https://placehold.jp/200x150.png', size: "200x150", alt: "他の写真"
-        = image_tag 'https://placehold.jp/200x150.png', size: "200x150", alt: "他の写真"
-        = image_tag 'https://placehold.jp/200x150.png', size: "200x150", alt: "他の写真"
-        = image_tag 'https://placehold.jp/200x150.png', size: "200x150", alt: "他の写真"
+        - @images.each do |image|
+          = image_tag "#{image.image_url}", size: "200x150", alt: "サムネイル", class: "thumb"
+          
     .shop__review.my-5
       .shop__review__title.mb-3
         口コミ
       .shop__reviews__content
-        ああああああああああああああああああああああああああああああ
+        口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ
 

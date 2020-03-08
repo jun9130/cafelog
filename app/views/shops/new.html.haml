@@ -1,26 +1,28 @@
 .container.mt-5
   %h1.new-shop__header.text-center 新しいカフェの登録 
-  %form
-    .form-group
-      %label.control-label 店名
-      %input.form-control{type: "text"}
-    .form-group
-      %label.control-label 最寄駅
-      %input.form-control{type: "text"}
-    .form-group
-      %label.control-label 住所
-      %input.form-control{type: "text"}
-    .form-group
-      %label.control-label 営業時間
-      %input.form-control{type: "text"}
-    .form-group
-      %label.control-label 定休日
-      %input.form-control{type: "text"}
-    .form-group
-      %label.control-label 席数
-      %input.form-control{type: "text"}
-    .form-group
-      %label.control-label その他
-      %input.form-control{type: "text"}
-        %button.btn.btn-default 送信
-
+  .new-shop
+    = form_for @shop do |f|
+      .new-shop__form-group.mx-auto.col-4 
+        = f.label :name, "店名", class: "new-shop__form-label"
+        = f.text_field :name, placeholder: "例: スターバックスコーヒー 渋谷店", class: "new-shop__form-input"
+      .new-shop__form-group.mx-auto.col-4 
+        = f.label :access, "最寄駅", class: "new-shop__form-label"
+        = f.text_field :access, placeholder: "例: 渋谷駅", class: "new-shop__form-input"
+      .new-shop__form-group.mx-auto.col-4 
+        = f.label :address, "住所", class: "new-shop__form-label"
+        = f.text_field :address, placeholder: "例: 東京都渋谷区渋谷1-1-1", class: "new-shop__form-input"
+      .new-shop__form-group.mx-auto.col-4 
+        = f.label :business_hours, "営業時間", class: "new-shop__form-label"
+        = f.text_field :business_hours, placeholder: "例: 7:00~23:00", class: "new-shop__form-input"
+      .new-shop__form-group.mx-auto.col-4 
+        = f.label :holiday, "定休日", class: "new-shop__form-label"
+        = f.text_field :holiday, placeholder: "例: 月曜日", class: "new-shop__form-input"
+      .new-shop__form-group.mx-auto.col-4 
+        = f.label :seat, "席数", class: "new-shop__form-label"
+        = f.text_field :seat, placeholder: "例: 100", class: "new-shop__form-input"
+      = f.fields_for :shop_images do |f|
+        .new-shop__form-group.mx-auto.col-4
+          = f.label "写真", class: "new-shop__form-label"
+          = f.file_field :image, class: "new-shop__form-input"
+      .new-shop__form-group.mx-auto.col-4 
+        = f.submit "登録する", class: "new-shop-button"

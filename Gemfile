@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -72,6 +73,8 @@ gem 'tzinfo-data'
 gem 'devise'
 gem 'font-awesome-sass'
 gem 'haml-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :production do
   gem 'unicorn', '5.4.1'

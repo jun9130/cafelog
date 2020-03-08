@@ -23,7 +23,6 @@
 |business_hours|string||
 |holiday|string||
 |seat|string||
-|smoking|string||
 |user|references|foreign_key: true|
 
 ### Association
