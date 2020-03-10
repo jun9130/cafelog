@@ -3,3 +3,11 @@
   width: 80%;
 }
 
+.user-edit-button {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 7px 20px;
+  border-radius: 30px; 
+  background: $green;
+  color: $white;
+}
