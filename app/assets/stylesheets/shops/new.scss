@@ -23,11 +23,21 @@
   border-radius: 30px;
   
 }
-.new-shop__form-input {
+
+.new-shop__form-input{
   width: 100%;
   padding: 10px;
+  border: 1px solid #ced4da;
   border-radius: 30px;
+}
 
+.new-shop__form-input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#shop_shop_images_attributes_0_image {
+  border: none;
 }
 
 .new-shop-button {
@@ -38,3 +48,11 @@
   color: $white;
   border-radius: 30px;
 }
+
+
+.new-shop-button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+

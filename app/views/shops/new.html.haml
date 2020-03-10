@@ -22,7 +22,7 @@
         = f.text_field :seat, placeholder: "例: 100", class: "new-shop__form-input"
       = f.fields_for :shop_images do |f|
         .new-shop__form-group.mx-auto.col-4
-          = f.label "写真", class: "new-shop__form-label"
+          = f.label :image, "写真", class: "new-shop__form-label"
           = f.file_field :image, class: "new-shop__form-input"
-      .new-shop__form-group.mx-auto.col-4 
+      .new-shop__form-group.mx-auto.col-4.my-4
         = f.submit "登録する", class: "new-shop-button"

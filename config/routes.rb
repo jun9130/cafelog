@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   root "shops#index"
   resources :shops, only: [:index, :show, :new, :create]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 
 end
