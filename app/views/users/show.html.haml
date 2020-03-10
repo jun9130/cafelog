@@ -3,13 +3,12 @@
     .upper-mypage.row
       .upper-mypage__left.col-4
         .upper-mypage__left__avatar
-          %img.rounded-circle.mb-5{alt: "avatar", src: "https://placehold.jp/250x250.png"}/
+        =image_tag @user.user_image_url, size: "250x250", alt: "アバター", class: "avatar mt-3 img-fluid"
 
       .upper-mypage__right.col-8
         .upper-mypage__right__username.pt-5
           = @user.name
-        %button.mt-2.btn.btn-secondary.btn-sm{type: "button"}
-          = link_to "編集", edit_user_registration_path(current_user)
+          = link_to "プロフィールを編集", edit_user_path(current_user), class: "user-edit-button"
         .upper-mypage__right__profile.pt-5
           = @user.profile_description
 

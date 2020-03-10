@@ -1,26 +1,30 @@
 .devise-wrapper
   .devise__contents
-    %h2 新規登録
+    %h2 新規登録 
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = render "devise/shared/error_messages", resource: resource
       .devise__form-group
-        = f.label :name, "名前"
+        = f.label :name, "名前" 
+        %span.required 必須 
         = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control'
       .devise__form-group
         = f.label :email, "メールアドレス"
+        %span.required 必須 
         = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
       .devise__form-group
         = f.label :password, "パスワード"
         %i (6文字以上)
+        %span.required 必須
         = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
         - if @minimum_password_length
           %small.form-text.text-muted= t('devise.shared.minimum_password_length', count: @minimum_password_length)
       .devise__form-group
         = f.label :password_confirmation, "パスワード(確認)"
+        %span.required 必須
         = f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control'
       .devise__form-group
-        = f.submit ('登録'), class: 'devise-new-button'
+        = f.label :user_image, "プロフィール写真"
+        = f.file_field :user_image, class: 'form-control'
+      .devise__form-group.mt-4
+        = f.submit ('登録'), class: 'devise-button'
     = render "devise/shared/links"
-
-
-
