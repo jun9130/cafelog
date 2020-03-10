@@ -3,8 +3,10 @@
     .upper-mypage.row
       .upper-mypage__left.col-4
         .upper-mypage__left__avatar
-        =image_tag @user.user_image_url, size: "250x250", alt: "アバター", class: "avatar mt-3 img-fluid"
-
+        - if @user.user_image?
+          =image_tag @user.user_image_url, size: "250x250", alt: "アバター", class: "avatar my-3 img-fluid"
+        - else
+          =image_tag "default_avatar.png", size: "250x250", alt: "アバター", class: "avatar my-3 img-fluid"
       .upper-mypage__right.col-8
         .upper-mypage__right__username.pt-5
           = @user.name
