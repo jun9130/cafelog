@@ -1,0 +1,28 @@
+.container.my-5
+  %h1.shop__header.text-center 登録情報の編集 
+  .shop-form
+    = form_for @shop do |f|
+      .shop-form__form-group.mx-auto.col-4 
+        = f.label :name, "店名", class: "shop__form-label"
+        = f.text_field :name, class: "shop__form-input"
+      .shop-form__form-group.mx-auto.col-4 
+        = f.label :access, "最寄駅", class: "shop__form-label"
+        = f.text_field :access, class: "shop__form-input"
+      .shop-form__form-group.mx-auto.col-4 
+        = f.label :address, "住所", class: "shop__form-label"
+        = f.text_field :address, class: "shop__form-input"
+      .shop-form__form-group.mx-auto.col-4 
+        = f.label :business_hours, "営業時間", class: "shop__form-label"
+        = f.text_field :business_hours, class: "shop__form-input"
+      .shop-form__form-group.mx-auto.col-4 
+        = f.label :holiday, "定休日", class: "shop__form-label"
+        = f.text_field :holiday, class: "shop__form-input"
+      .shop-form__form-group.mx-auto.col-4 
+        = f.label :seat, "席数", class: "shop__form-label"
+        = f.text_field :seat, class: "shop__form-input"
+      = f.fields_for @image do |f|
+        .shop-form__form-group.mx-auto.col-4
+          = f.label "写真", class: "shop__form-label"
+          = f.file_field :image, class: "shop__form-input shop-images__form"
+      .shop-form__form-group.mx-auto.col-4.my-4
+        = f.submit "変更する", class: "shop-button"
