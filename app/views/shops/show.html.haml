@@ -3,6 +3,7 @@
     .shop__data.pt-5.pb-3
       .shop__data__upper__name
         = @shop.name
+        = link_to "編集", edit_shop_path, class: "shop-edit-button"
       .shop__data__upper__stars
         評価
     .shop__content.d-flex.mb-5

@@ -1,4 +1,3 @@
-@import "reset";
 @import "confing/colors";
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -10,9 +9,12 @@
 @import "modules/header";
 @import "modules/flash";
 
+@import "shops/form";
 @import "shops/index";
-@import "shops/new";
 @import "shops/show";
 
-
 @import "users/show";
+
+.container {
+  background-color: $white;
+}

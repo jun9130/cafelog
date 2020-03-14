@@ -1,5 +1,8 @@
 class ShopsController < ApplicationController
   
+  before_action :set_shop, only: [:edit, :update]
+
+  
   def new
     @shop = Shop.new
     @image = @shop.shop_images.build
@@ -23,8 +26,30 @@ class ShopsController < ApplicationController
     @image = @images.first
   end
 
+  def edit
+  end
+
+  def update
+    if @shop.update(shop_update_params)
+      redirect_to shop_path, notice: 'カフェ登録内容を編集しました'
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def set_shop
+    @shop = Shop.find(params[:id])
+    @image = @shop.shop_images
+  end
+
   def shop_params
     params.require(:shop).permit(:name, :access, :address, :business_hours, :holiday, :seat, shop_images_attributes: [:image, :id]).merge(user_id: current_user.id)
   end
+
+  def shop_update_params
+    params.require(:shop).permit(:name, :access, :address, :business_hours, :holiday, :seat, shop_images_attributes: [:image, :id]).merge(user_id: current_user.id)
+  end
+
 end
