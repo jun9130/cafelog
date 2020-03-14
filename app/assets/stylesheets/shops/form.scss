@@ -1,21 +1,17 @@
-.container {
-  background-color: $background;
-}
-
-.new-shop__header {
+.shop__header {
   font-weight: bold;
 }
 
-.new-shop {
+.shop-form {
   text-align: center;
 }
 
-.new-shop__form-group {
+.shop-form__form-group {
   
   margin-bottom: 10px;
 }
 
-.new-shop__form-label {
+.shop__form-label {
   padding: 10px 0;
   letter-spacing: 0.05rem;
   font-size: 14px;
@@ -24,23 +20,23 @@
   
 }
 
-.new-shop__form-input{
+.shop__form-input{
   width: 100%;
   padding: 10px;
   border: 1px solid #ced4da;
   border-radius: 30px;
 }
 
-.new-shop__form-input:focus {
+.shop__form-input:focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-#shop_shop_images_attributes_0_image {
+.shop-images__form {
   border: none;
 }
 
-.new-shop-button {
+.shop-button {
   display: inline-block;
   width: 150px;
   padding: 7px 20px;
@@ -50,7 +46,7 @@
 }
 
 
-.new-shop-button:focus {
+.shop-button:focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }

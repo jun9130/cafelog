@@ -10,7 +10,8 @@
       .upper-mypage__right.col-8
         .upper-mypage__right__username.pt-5
           = @user.name
-          = link_to "プロフィールを編集", edit_user_path(current_user), class: "user-edit-button"
+          - if user_signed_in? && @user.id == current_user.id
+            = link_to "プロフィールを編集", edit_user_path(current_user), class: "user-edit-button"
         .upper-mypage__right__profile.pt-5
           = @user.profile_description
 
