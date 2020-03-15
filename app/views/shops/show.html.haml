@@ -3,15 +3,16 @@
     .shop__data.pt-5.pb-3
       .shop__data__upper__name
         = @shop.name
-        = link_to "編集", edit_shop_path, class: "shop-edit-button"
       .shop__data__upper__stars
         評価
+        - if user_signed_in? && @shop.user_id == current_user.id
+          = link_to "編集", edit_shop_path, class: "shop-edit-button float-right"
     .shop__content.d-flex.mb-5
       .shop__photo
         - if @image 
-          = image_tag @image.image_url, size: "430x320", alt: "メイン画像", class: "mainImage"
+          = image_tag @image.image_url, size: "500x320", alt: "メイン画像", class: "mainImage"
         - else
-          = image_tag 'http://placehold.jp/eeeeee/cccccc/430x320.png?text=No%20Image', size: "430x320", alt: "メイン画像", class: "mainImage"
+          = image_tag 'http://placehold.jp/eeeeee/cccccc/430x320.png?text=No%20Image', size: "500x320", alt: "メイン画像", class: "mainImage"
       %table.table.ml-3
         %tr
           %th 
