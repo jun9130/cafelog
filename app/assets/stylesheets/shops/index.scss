@@ -27,7 +27,7 @@
       }
      }
     &__shops {
-      padding: 30px 60px 0 60px;
+      padding: 30px 20px 0 20px;
       margin-bottom: 70px;
       &__list {
         h3 {
@@ -45,3 +45,16 @@
       }        
      }        
     }
+
+.top__contents__shops__reviews__item {
+  display: inline-block;
+  padding: 32px 12px;
+  
+  &__info__name {
+    padding-bottom: 4px;
+    color: $black;
+    }
+  &__star {
+    padding: 4px 0;
+  }
+}

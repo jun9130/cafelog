@@ -1,4 +1,5 @@
 .top-image
+
   
 .container
   .top
@@ -22,74 +23,19 @@
       .top__contents__shops
         .top__contents__shops__list
           %h3 #新着
-          = link_to "#", class: "link" do
-            %storng もっと見る
         .top__contents__shops__reviews
           .row
-            .top__contents__shops__reviews__item.col-4
-              .top__contents__shops__reviews__item__info
-                .top__contents__shops__reviews__item__info__name
-                  お店の名前
-                .top__contents__shops__reviews__item__info__station
-                  渋谷駅
-                .top__contents__shops__reviews__item__photo
-                  =image_tag "", size: "300x300"
-                .top__contents__shops__reviews__item__star
-                  評価
-            .top__contents__shops__reviews__item.col-4
-              .top__contents__shops__reviews__item__info
-                .top__contents__shops__reviews__item__info__name
-                  お店の名前
-                .top__contents__shops__reviews__item__info__station
-                  渋谷駅
-                .top__contents__shops__reviews__item__photo
-                  =image_tag "", size: "300x300"
-                .top__contents__shops__reviews__item__star
-                  評価
-            .top__contents__shops__reviews__item.col-4
-              .top__contents__shops__reviews__item__info
-                .top__contents__shops__reviews__item__info__name
-                  お店の名前
-                .top__contents__shops__reviews__item__info__station
-                  渋谷駅
-                .top__contents__shops__reviews__item__photo
-                  =image_tag "", size: "300x300"
-                .top__contents__shops__reviews__item__star
-                  評価
-        .top__contents__shops__list
-          %h3 #人気
-          = link_to "#", class: "link" do
-            %storng もっと見る
-        .top__contents__shops__reviews
-          .row
-            .top__contents__shops__reviews__item.col-4
-              .top__contents__shops__reviews__item__info
-                .top__contents__shops__reviews__item__info__name
-                  お店の名前
-                .top__contents__shops__reviews__item__info__station
-                  渋谷駅
-                .top__contents__shops__reviews__item__photo
-                  =image_tag "", size: "300x300"
-                .top__contents__shops__reviews__item__star
-                  評価
-            .top__contents__shops__reviews__item.col-4
-              .top__contents__shops__reviews__item__info
-                .top__contents__shops__reviews__item__info__name
-                  お店の名前
-                .top__contents__shops__reviews__item__info__station
-                  渋谷駅
-                .top__contents__shops__reviews__item__photo
-                  =image_tag "", size: "300x300"
-                .top__contents__shops__reviews__item__star
-                  評価
-            .top__contents__shops__reviews__item.col-4
-              .top__contents__shops__reviews__item__info
-                .top__contents__shops__reviews__item__info__name
-                  お店の名前
-                .top__contents__shops__reviews__item__info__station
-                  渋谷駅
-                .top__contents__shops__reviews__item__photo
-                  =image_tag "", size: "300x300"
-                .top__contents__shops__reviews__item__star
-                  評価
+          - @shops.each do |shop|
+            .top__contents__shops__reviews__item
+              = link_to shop_path(shop) , class: "link" do
+                .top__contents__shops__reviews__item__info
+                  .top__contents__shops__reviews__item__info__name
+                    = shop.name
+                  .top__contents__shops__reviews__item__photo
+                  - shop.shop_images.each do |shop_image| 
+                    =image_tag shop_image.image_url, size: "300x300"
+              .top__contents__shops__reviews__item__star
+                評価
+              .top__contents__shops__reviews__item__info__station
+                = shop.access
           
