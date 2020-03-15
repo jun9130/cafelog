@@ -18,7 +18,7 @@ class ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.includes(:shop_images).order('id DESC').limit(9)
+    @shops = Shop.includes(:shop_images).order('id DESC').page(params[:page]).per(9)
   end
 
   def show
