@@ -11,6 +11,13 @@ class ReviewsController < ApplicationController
     redirect_to root_path, notice: 'レビューを投稿しました'
   end
 
+  def destroy
+    review = Review.find(params[:id])
+    review.destroy if review.user_id == current_user.id
+    redirect_to root_path, notice: 'レビューを削除しました'
+  end
+
+
   private
   def review_params
     params.require(:review).permit(:rate, :text).merge(shop_id: params[:shop_id], user_id: current_user.id)

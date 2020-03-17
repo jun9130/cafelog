@@ -1,14 +1,15 @@
 .container
   .shop
-    .shop__data.pt-5.pb-3
-      .shop__data__upper__name
-        = @shop.name
-      .shop__data__upper__stars
-        評価
-        - if user_signed_in? && @shop.user_id == current_user.id
-          = link_to "編集", edit_shop_path, class: "shop-edit-button float-right"
-    .shop__content.d-flex.mb-5
-      .shop__photo
+    .shop-data.pt-5.pb-3
+      .shop-data__upper
+        .shop-data__upper__name
+          = @shop.name
+        .shop-data__upper__stars
+          評価
+          - if user_signed_in? && @shop.user_id == current_user.id
+            = link_to "編集", edit_shop_path, class: "shop-edit-button float-right"
+    .shop-content.d-flex.mb-5
+      .shop-photo
         - if @image 
           = image_tag @image.image_url, size: "500x320", alt: "メイン画像", class: "mainImage"
         - else
@@ -44,36 +45,38 @@
             タグ
             %td
               禁煙 仮置き
-    .shop__post-photo
-      .shop__post-photo__header
-        .shop__post-photo__header__title.mb-3
+    .shop-other-photos
+      .shop-other-photos__header
+        .shop-post-photos__header__title.mb-3
           写真
-      .shop__post-photo__content
+      .shop-post-photos__content
         - @images.each do |image|
           = image_tag "#{image.image_url}", size: "200x150", alt: "サムネイル", class: "thumb"
           
-    .shop__review.my-5
-      .shop__review__title.mb-3
+    .shop-review.my-5
+      .shop-review__title.mb-3
         レビュー一覧
         = link_to "レビューを書く", "/shops/#{@shop.id}/reviews/new", class: "shop-review-button float-right"
-      .shop__reviews__content
+      .shop-review__wrapper
         - if @reviews.present?
           - @reviews.each do |review|
-            .shop__reviews__content__left
-              .shop__reviews__content__left__avatar
-                - if review.user.user_image?
-                  = image_tag review.user.user_image_url, size: "60x60", alt: "アバター", class: "avatar my-3 img-fluid"
-                - else
-                  = image_tag "default_avatar.png", size: "60x60", alt: "アバター", class: "avatar my-3 img-fluid"
-              .shop__reviews__content__left__user
-                = review.user.name
-            .shop__reviews__content__right
-              .shop__reviews__content__right__upper__text
-                = review.text
-              .shop__reviews__content__right__lower
-                .shop__reviews__content__right__lower__time 
+            .shop-reviews__content
+              .shop-reviews__content__upper
+                .shop-reviews__content__upper__left.mr-3.pb-3
+                  .shop-reviews__content__upper__left__avatar
+                    - if review.user.user_image?
+                      = image_tag review.user.user_image_url, size: "60x60", alt: "アバター", class: "avatar img-fluid"
+                    - else
+                      = image_tag "default_avatar.png", size: "60x60", alt: "アバター", class: "avatar my-3 img-fluid"
+                .shop-reviews__content__upper__right
+                  = review.text
+                  - if user_signed_in? && current_user.id == review.user_id
+                    = link_to '削除', "/shops/#{review.shop.id}/reviews/#{review.id}", method: :delete, class: "review-delete-btn float-right"
+              .shop-reviews__content__lower
+                .shop-reviews__content__lower__left.mr-3
+                  = review.user.name
+                .shop-reviews__content__lower__left 
                   = review.created_at.to_s(:date)
-                .shop__reviews__content__right__lower__star
                   - @star_on = review.rate
                   - @star_off = 5 - @star_on
                   - @star_on.times do
@@ -82,5 +85,3 @@
                     =image_tag "star-off.png"
         - else
           レビューはまだありません。
-
-
