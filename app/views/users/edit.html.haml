@@ -1,6 +1,6 @@
 .devise-wrapper
-  .devise__contents
-    %h2 プロフィールを編集
+  .devise__contents.py-5
+    %h1 プロフィールを編集
     = form_for(current_user) do |f|
       .devise__form-group
         = f.label :name, "名前"
