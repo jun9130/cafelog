@@ -1,0 +1,11 @@
+.container.my-5
+  %h3.review-content.text-center.py-5 #{@shop.name}のレビュー
+  .review-form
+    = form_for [@shop, @review] do |f|
+      .review-form__form-group.mx-auto
+        = f.label "評価(5段階)", class: "revuew__form-label"
+        =f.select :rate, @star_array, {}, class: "select-default", placeholder: "例）5",type: "integer"
+      .review-form__form-group.mx-auto
+        = f.text_area :text, placeholder: 'レビューを書いてね！', class: "review__form-input"
+      .review-form__form-group.mx-auto.col-4 
+        = f.submit "送信", class: "shop-button my-5"

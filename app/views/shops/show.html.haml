@@ -54,7 +54,33 @@
           
     .shop__review.my-5
       .shop__review__title.mb-3
-        口コミ
+        レビュー一覧
+        = link_to "レビューを書く", "/shops/#{@shop.id}/reviews/new", class: "shop-review-button float-right"
       .shop__reviews__content
-        口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ
+        - if @reviews.present?
+          - @reviews.each do |review|
+            .shop__reviews__content__left
+              .shop__reviews__content__left__avatar
+                - if review.user.user_image?
+                  = image_tag review.user.user_image_url, size: "60x60", alt: "アバター", class: "avatar my-3 img-fluid"
+                - else
+                  = image_tag "default_avatar.png", size: "60x60", alt: "アバター", class: "avatar my-3 img-fluid"
+              .shop__reviews__content__left__user
+                = review.user.name
+            .shop__reviews__content__right
+              .shop__reviews__content__right__upper__text
+                = review.text
+              .shop__reviews__content__right__lower
+                .shop__reviews__content__right__lower__time 
+                  = review.created_at.to_s(:date)
+                .shop__reviews__content__right__lower__star
+                  - @star_on = review.rate
+                  - @star_off = 5 - @star_on
+                  - @star_on.times do
+                    =image_tag "star-on.png"
+                  - @star_off.times do
+                    =image_tag "star-off.png"
+        - else
+          レビューはまだありません。
+
 
