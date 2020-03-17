@@ -11,14 +11,13 @@
   text-align: center;
   background-color: $white;
   box-sizing: border-box;
-  h2 {
-    font-size: 30px;
-    padding-bottom: 30px ;
+  h1 {
+    font-weight: bold;   
   }
 }
 
 .devise__form-group {
-  margin-bottom: 15px;
+  margin: 30px 0;
 }
 
 .required {

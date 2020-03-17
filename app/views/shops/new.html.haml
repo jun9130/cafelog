@@ -1,5 +1,5 @@
 .container.my-5
-  %h1.shop__header.text-center 新しいカフェの登録 
+  %h1.shop__header.text-center.py-5 新しいカフェの登録 
   .shop-form
     = form_for @shop do |f|
       .shop-form__form-group.mx-auto.col-4 
@@ -24,5 +24,5 @@
         .shop-form__form-group.mx-auto.col-4 
           = f.label :image, "写真", class: "shop__form-label"
           = f.file_field :image, class: "shop__form-input shop-images__form"
-      .shop-form__form-group.mx-auto.col-4 
-        = f.submit "登録する", class: "shop-button"
+      .shop-form__form-group.mx-auto.col-4
+        = f.submit "登録する", class: "shop-button my-5"

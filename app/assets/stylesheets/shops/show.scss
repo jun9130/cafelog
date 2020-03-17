@@ -5,3 +5,33 @@
       font-weight: bold;
     }
 }
+
+.shop-edit-button {
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 10px;
+  padding: 7px 20px;
+  border-radius: 30px;
+  background: $green;
+  color: $white;
+}
+
+.shop-review-button {
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 10px;
+  padding: 7px 20px;
+  border-radius: 30px;
+  background: $green;
+  color: $white;
+}
+
+.shop__reviews__content {
+  overflow: hidden;
+  border-bottom: 2px solid #dfdfdf;
+  &__left__user {
+    text-align: center;
+  }
+}
+
+

@@ -25,6 +25,7 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @images = @shop.shop_images
     @image = @images.first
+    @reviews = @shop.reviews.includes(:user)
   end
 
   def edit

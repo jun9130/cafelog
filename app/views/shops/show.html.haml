@@ -3,15 +3,16 @@
     .shop__data.pt-5.pb-3
       .shop__data__upper__name
         = @shop.name
-        = link_to "編集", edit_shop_path, class: "shop-edit-button"
       .shop__data__upper__stars
         評価
+        - if user_signed_in? && @shop.user_id == current_user.id
+          = link_to "編集", edit_shop_path, class: "shop-edit-button float-right"
     .shop__content.d-flex.mb-5
       .shop__photo
         - if @image 
-          = image_tag @image.image_url, size: "430x320", alt: "メイン画像", class: "mainImage"
+          = image_tag @image.image_url, size: "500x320", alt: "メイン画像", class: "mainImage"
         - else
-          = image_tag 'http://placehold.jp/eeeeee/cccccc/430x320.png?text=No%20Image', size: "430x320", alt: "メイン画像", class: "mainImage"
+          = image_tag 'http://placehold.jp/eeeeee/cccccc/430x320.png?text=No%20Image', size: "500x320", alt: "メイン画像", class: "mainImage"
       %table.table.ml-3
         %tr
           %th 
@@ -53,7 +54,33 @@
           
     .shop__review.my-5
       .shop__review__title.mb-3
-        口コミ
+        レビュー一覧
+        = link_to "レビューを書く", "/shops/#{@shop.id}/reviews/new", class: "shop-review-button float-right"
       .shop__reviews__content
-        口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ口コミ
+        - if @reviews.present?
+          - @reviews.each do |review|
+            .shop__reviews__content__left
+              .shop__reviews__content__left__avatar
+                - if review.user.user_image?
+                  = image_tag review.user.user_image_url, size: "60x60", alt: "アバター", class: "avatar my-3 img-fluid"
+                - else
+                  = image_tag "default_avatar.png", size: "60x60", alt: "アバター", class: "avatar my-3 img-fluid"
+              .shop__reviews__content__left__user
+                = review.user.name
+            .shop__reviews__content__right
+              .shop__reviews__content__right__upper__text
+                = review.text
+              .shop__reviews__content__right__lower
+                .shop__reviews__content__right__lower__time 
+                  = review.created_at.to_s(:date)
+                .shop__reviews__content__right__lower__star
+                  - @star_on = review.rate
+                  - @star_off = 5 - @star_on
+                  - @star_on.times do
+                    =image_tag "star-on.png"
+                  - @star_off.times do
+                    =image_tag "star-off.png"
+        - else
+          レビューはまだありません。
+
 
