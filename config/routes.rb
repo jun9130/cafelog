@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root "shops#index"
   resources :shops do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
 
