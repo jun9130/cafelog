@@ -60,22 +60,19 @@
       .shop-review__wrapper
         - if @reviews.present?
           - @reviews.each do |review|
-            .shop-reviews__content
-              .shop-reviews__content__upper
-                .shop-reviews__content__upper__left.mr-3.pb-3
-                  .shop-reviews__content__upper__left__avatar
-                    - if review.user.user_image?
-                      = image_tag review.user.user_image_url, size: "60x60", alt: "アバター", class: "avatar img-fluid"
-                    - else
-                      = image_tag "default_avatar.png", size: "60x60", alt: "アバター", class: "avatar my-3 img-fluid"
-                .shop-reviews__content__upper__right
+            .shop-reviews__content.mt-3.pb-2
+              .shop-reviews__content__left.mr-3.pb-3.col-1
+                .shop-reviews__content__left__avatar
+                  - if review.user.user_image?
+                    = link_to image_tag(review.user.user_image_url, size: "60x60", alt: "アバター", class: "avatar img-fluid"), user_path(review.user.id)
+                  - else
+                    = link_to image_tag("default_avatar.png", size: "60x60", alt: "アバター", class: "avatar my-3 img-fluid"), user_path(review.user.id)
+                .shop-reviews__content__left__user-name.text-center
+                  = link_to review.user.name , user_path(review.user.id),class: "text-dark"
+              .shop-reviews__content__main.col-9
+                .shop-reviews__content__main__text.mr-3
                   = review.text
-                  - if user_signed_in? && current_user.id == review.user_id
-                    = link_to '削除', "/shops/#{review.shop.id}/reviews/#{review.id}", method: :delete, class: "review-delete-btn float-right"
-              .shop-reviews__content__lower
-                .shop-reviews__content__lower__left.mr-3
-                  = review.user.name
-                .shop-reviews__content__lower__left 
+                .shop-reviews__content__main__star 
                   = review.created_at.to_s(:date)
                   - @star_on = review.rate
                   - @star_off = 5 - @star_on
@@ -83,5 +80,8 @@
                     =image_tag "star-on.png"
                   - @star_off.times do
                     =image_tag "star-off.png"
+              .shop-reviews__content__delete.col-2
+                - if user_signed_in? && current_user.id == review.user_id
+                  = link_to '削除', "/shops/#{review.shop.id}/reviews/#{review.id}", method: :delete, class: "review-delete-btn float-right"
         - else
           レビューはまだありません。
