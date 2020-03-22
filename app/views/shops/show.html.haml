@@ -4,8 +4,9 @@
       .shop-data__upper
         .shop-data__upper__name
           = @shop.name
-        .shop-data__upper__stars
-          評価
+        .shop-data__upper__registered-person
+          登録者:
+          = link_to @shop.user.name, user_path(@shop.user.id),class: "text-dark"
           - if user_signed_in? && @shop.user_id == current_user.id
             = link_to "編集", edit_shop_path, class: "shop-edit-button float-right"
     .shop-content.d-flex.mb-5
@@ -44,7 +45,9 @@
           %th 
             タグ
             %td
-              禁煙 仮置き
+              - @shop.tags.each do |tag|
+                .tag-name
+                  = tag.name
     .shop-other-photos
       .shop-other-photos__header
         .shop-post-photos__header__title.mb-3
