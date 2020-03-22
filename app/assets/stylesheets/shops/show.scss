@@ -3,8 +3,13 @@
   &-data {
       font-size: 24px;
       font-weight: bold;
+      &__upper__registered-person {
+        font-size: 16px;
+        font-weight: normal;
+      }
     }
 }
+
 
 .shop-edit-button {
   display: inline-block;
@@ -36,8 +41,15 @@
 &__text {
   word-break: break-all
 } 
-&__star {
 }
+
+.tag-name {
+  display: inline-block;
+  border-radius: 30px;
+  background: $green;
+  color: $white;
+  padding: 1px 9px;
+  font-size: 14px;
 }
 
 .review-delete-btn {

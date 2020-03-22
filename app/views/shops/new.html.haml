@@ -20,6 +20,13 @@
       .shop-form__form-group.mx-auto.col-4 
         = f.label :seat, "席数", class: "shop__form-label"
         = f.text_field :seat, placeholder: "例: 100", class: "shop__form-input"
+      .shop-form__form-group.mx-auto.col-4 
+        = f.label "タグ 複数選択可", class: "shop__form-label"
+        .tag-check-box
+          = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag|
+            = tag.label do
+              = tag.check_box
+              = tag.text
       = f.fields_for :shop_images do |f|
         .shop-form__form-group.mx-auto.col-4 
           = f.label :image, "写真", class: "shop__form-label"
