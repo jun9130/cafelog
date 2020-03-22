@@ -23,7 +23,7 @@
           = form_for(User.new, as: :user, url: session_path(:user)) do |f|
             = f.hidden_field :email, value: "test@gmail.com"
             = f.hidden_field :password, value: "test123456"
-            = f.submit "かんたんログイン", class: "btn-test-login", style: "color: white;"
+            = f.submit "かんたんログイン", class: "btn-test-login"
         %li.nav-item
           = link_to "カフェ一覧", root_path, class: 'nav-link text-white'
         %li.nav-item
