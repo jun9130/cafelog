@@ -20,10 +20,13 @@
     -else
       %ul.navbar-nav
         %li.nav-item
+          = form_for(User.new, as: :user, url: session_path(:user)) do |f|
+            = f.hidden_field :email, value: "test@gmail.com"
+            = f.hidden_field :password, value: "test123456"
+            = f.submit "かんたんログイン", class: "btn-test-login", style: "color: white;"
+        %li.nav-item
           = link_to "カフェ一覧", root_path, class: 'nav-link text-white'
         %li.nav-item
           = link_to "新規会員登録", new_user_registration_path, class: 'nav-link text-white'
         %li.nav-item
           = link_to "ログイン", new_user_session_path, class: 'nav-link text-white'
-        %li.nav-item
-          = link_to "かんたんログイン", "#", class: 'nav-link text-white'

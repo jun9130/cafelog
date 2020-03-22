@@ -1,20 +1,36 @@
 .devise-wrapper
   .devise__contents.py-5
     %h1 プロフィールを編集
-    = form_for(current_user) do |f|
-      .devise__form-group
-        = f.label :name, "名前"
-        = f.text_field :name, autofocus: true, class: 'form-control'
-      .devise__form-group
-        = f.label :email, "メールアドレス"
-        = f.email_field :email, class: 'form-control'
-      .devise__form-group
-        = f.label :profile_description, "自己紹介"
-        = f.text_area :profile_description, class: 'form-control'
-      .devise__form-group
-        = f.label :user_image, "プロフィール写真"
-        = f.file_field :user_image, class: 'form-control'
-      .devise__form-group.my-4
-        = f.submit ("保存"), class: "devise-edit-button"
-      .devise__form-group.my-4
-        = link_to "キャンセル", :back, class: "devise-edit-button"
+    - if current_user.email == "test@gmail.com"
+      = form_for(current_user) do |f|
+        .devise__form-group
+          = f.label :name, "名前"
+          = f.text_field :name, autofocus: true, class: 'form-control'
+        .devise__form-group
+          = f.label :profile_description, "自己紹介"
+          = f.text_area :profile_description, class: 'form-control'
+        .devise__form-group
+          = f.label :user_image, "プロフィール写真"
+          = f.file_field :user_image, class: 'form-control'
+        .devise__form-group.my-4
+          = f.submit ("保存"), class: "devise-edit-button"
+        .devise__form-group.my-4
+          = link_to "キャンセル", :back, class: "devise-edit-button"
+    - else
+      = form_for(current_user) do |f|
+        .devise__form-group
+          = f.label :name, "名前"
+          = f.text_field :name, autofocus: true, class: 'form-control'
+        .devise__form-group
+          = f.label :email, "メールアドレス"
+          = f.email_field :email, class: 'form-control'
+        .devise__form-group
+          = f.label :profile_description, "自己紹介"
+          = f.text_area :profile_description, class: 'form-control'
+        .devise__form-group
+          = f.label :user_image, "プロフィール写真"
+          = f.file_field :user_image, class: 'form-control'
+        .devise__form-group.my-4
+          = f.submit ("保存"), class: "devise-edit-button"
+        .devise__form-group.my-4
+          = link_to "キャンセル", :back, class: "devise-edit-button"
