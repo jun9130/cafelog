@@ -1,58 +1,45 @@
-# README
+# Cafelog
+カフェを検索、登録、レビューできるWebサービスです。
 
-# データベース設計
-## usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false, unique: true|
-|email|string|null: false, unique: true|
-|user_image|string||
-|profile_description|text||
-|password|string|null: false|
+# URL
+http://18.178.195.225/
+- かんたんログインから登録不要で使用できます。
 
-### Association
-- has_many :cafes
-- has_many :reviews
+# 制作背景
+私は昔からカフェが好きで、読書や談笑や考え事をする時などによく利用をしています。
+最近では、プログラミング学習を始めてより生活の一部となり、スキマ時間があれば、そのエリアのカフェを検索して作業するという日々を過ごしてます。
+その際に、毎回カフェを検索する行為や「このカフェはパソコン作業をするのに適しているのだろうか？」などを調べるのは手間だと感じるようになり、カフェに特化したWebサービスがあれば便利だと考えて、今回このようなWebサービスを作りました。
 
-## shopsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|access|string||
-|address|string||
-|business_hours|string||
-|holiday|string||
-|seat|string||
-|user|references|foreign_key: true|
+# 言語・使用技術
+- Ruby 2.5.1
+- Ruby on Rails 5.2.3
+- Haml
+- Sass
+- JavaScript
+- jQuery
+- MySQL
+- Nginx
+- Capistrano3
+- AWS
+  - EC2
+  - S3
+- Rspec
+- Github
 
-### Association
-- belongs_to :user
-- has_many :shop_images
+# 実装機能
+- ユーザー機能
+ - 新規登録・ログイン・ログアウト機能
+ - ユーザー登録編集機能
+ - かんたんログイン機能
+- カフェ機能
+  - 登録・編集機能
+  - 画像投稿機能
+  - コメント投稿・評価・削除機能
+  - タグ機能
+  - 検索機能
+- ページネーション機能
 
-## shop_imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|image|string||
-|cafe|references|foreign_key: true|
-
-### Association
-- belongs_to :cafe
-
-## reviewsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|body|text||
-|user|references|foreign_key: true|
-|cafe|references|foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :cafe
-
-## tagsテーブル
-
-### Association
-
-## likesテーブル
-
-### Association
+# 今後実装したい機能
+- Google map APIを用いた地図表示機能
+- お気に入り機能
+- 評価が高い順番に並び替え
