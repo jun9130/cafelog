@@ -27,9 +27,7 @@
             = tag.label do
               = tag.check_box
               = tag.text
-      = f.fields_for @image do |f|
-        .shop-form__form-group.mx-auto.col-4
-          = f.label "写真", class: "shop__form-label"
-          = f.file_field :image, class: "shop__form-input shop-images__form"
+      .shop-form__form-group.mx-auto.col-4
+        = f.submit ("変更する"), class: "shop-button" 
       .shop-form__form-group.mx-auto.col-4.my-4
-        = f.submit "変更する", class: "shop-button my-5"
+      = link_to "キャンセル", :back, class: "shop-button-back mb-5"
