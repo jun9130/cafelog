@@ -27,9 +27,13 @@
             = tag.label do
               = tag.check_box
               = tag.text
-      = f.fields_for :shop_images do |f|
-        .shop-form__form-group.mx-auto.col-4 
-          = f.label :image, "写真", class: "shop__form-label"
-          = f.file_field :image, class: "shop__form-input shop-images__form"
+      .form-label
+        写真（5枚までアップロード可能）
+        .image-upload
+          #preview
+          = f.fields_for :shop_images do |i| 
+            = i.label :image, "写真", class: "uploader", id: "image-label-#{i.index}" do
+              %pre クリックしてアップロード
+              = i.file_field :image, class:"image-box", type:'file'
       .shop-form__form-group.mx-auto.col-4
         = f.submit "登録する", class: "shop-button my-5"

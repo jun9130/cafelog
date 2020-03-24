@@ -5,7 +5,7 @@ class ShopsController < ApplicationController
   
   def new
     @shop = Shop.new
-    @image = @shop.shop_images.build
+    5.times{@shop.shop_images.build}
   end
 
   def create
@@ -43,7 +43,6 @@ class ShopsController < ApplicationController
 
   def set_shop
     @shop = Shop.find(params[:id])
-    @image = @shop.shop_images
   end
 
   def shop_params

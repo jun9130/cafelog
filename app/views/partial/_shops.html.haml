@@ -7,7 +7,7 @@
           .top__contents__shops__reviews__item__info__name
             = shop.name
           .top__contents__shops__reviews__item__photo
-          - shop.shop_images.each do |shop_image| 
-            = image_tag shop_image.image_url, size: "300x300"
+          - image = shop.shop_images[0]
+          = image_tag "#{image.image}", size: "300x300" if shop.shop_images.present?
       .top__contents__shops__reviews__item__info__station
         = shop.access
