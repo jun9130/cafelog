@@ -14,7 +14,7 @@
         - if @image 
           = image_tag @image.image_url, size: "500x320", alt: "メイン画像", class: "mainImage"
         - else
-          = image_tag 'http://placehold.jp/eeeeee/cccccc/430x320.png?text=No%20Image', size: "500x320", alt: "メイン画像", class: "mainImage"
+          = image_tag "no-image-show.png", size: "500x320", alt: "メイン画像", class: "mainImage"
       %table.table.ml-3
         %tr
           %th 

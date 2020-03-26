@@ -9,4 +9,6 @@ class Shop < ApplicationRecord
   has_many :tags, through: :shop_tags
 
   validates :name, presence: true
+  validates :access, presence: true
+  validates :address, presence: true
 end

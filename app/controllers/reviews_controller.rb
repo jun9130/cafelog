@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     review.destroy if review.user_id == current_user.id
-    redirect_to root_path, notice: 'レビューを削除しました'
+    redirect_to root_path
+    flash[:alert] = 'レビューを削除しました'
   end
 
 
