@@ -8,6 +8,10 @@
             = shop.name
           .top__contents__shops__reviews__item__photo
           - image = shop.shop_images[0]
-          = image_tag "#{image.image}", size: "300x300" if shop.shop_images.present?
+          - if shop.shop_images.present?
+            = image_tag "#{image.image}", size: "300x300"
+          - else
+            = image_tag "no-image-index.png", size: "300x300"
+
       .top__contents__shops__reviews__item__info__station
         = shop.access
