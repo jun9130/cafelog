@@ -5,7 +5,7 @@
     - if @shops.present?
       .shop-search-result-number
         %p #{@shops.length}件表示
-        = render partial: 'partial/shops'
+        = render partial: 'modules/shops'
     - else
       .shop-search-result-description.text-center
         %p 該当するカフェが見つかりません。新たに登録しましょう！

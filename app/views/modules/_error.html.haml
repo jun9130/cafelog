@@ -1,0 +1,5 @@
+-if @shop.errors.any? 
+  #error_explanation
+    %ul
+      - @shop.errors.full_messages.each do |message| 
+        %li= message

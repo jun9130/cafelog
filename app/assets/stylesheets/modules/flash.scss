@@ -13,3 +13,13 @@
     padding: 10px;
   }
 }
+
+#error_explanation {
+  color: #990000;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px; font-weight:850;
+  ul {
+    list-style: none; 
+  }
+}

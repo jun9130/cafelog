@@ -13,8 +13,7 @@ class ShopsController < ApplicationController
     if @shop.save
       redirect_to root_path, notice: 'カフェを登録しました'
     else
-      redirect_to new_shop_path
-      flash[:alert] = '登録に失敗しました'
+      render new_shop_path
     end
   end
 

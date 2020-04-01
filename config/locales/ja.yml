@@ -1,6 +1,16 @@
 ---
 ja:
   activerecord:
+    models:
+      shop: カフェ
+    attributes:
+      shop:
+        name: 店名
+        access: 最寄駅
+        address: 住所
+        business_hours: 営業時間
+        holiday: 定休日
+        seat: 席数
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
