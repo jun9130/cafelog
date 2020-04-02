@@ -1,14 +1,18 @@
 class ReviewsController < ApplicationController
-  before_action :set_star_array, only: [:new]
+  before_action :set_shop_review, only: [:new, :create]
 
   def new
-    @shop = Shop.find(params[:shop_id])
     @review = Review.new
   end
 
   def create
-    Review.create(review_params)
+    @review = Review.new(review_params)
+    if @review.save
     redirect_to root_path, notice: 'レビューを投稿しました'
+    else 
+      flash.now[:alert] = 'レビューを入力してください'
+      render :new
+    end
   end
 
   def destroy
@@ -24,7 +28,8 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rate, :text).merge(shop_id: params[:shop_id], user_id: current_user.id)
   end
 
-  def set_star_array
+  def set_shop_review
+    @shop = Shop.find(params[:shop_id])
     @star_array = ['--','1','2','3','4','5']
   end
 
