@@ -13,6 +13,25 @@ describe User do
       expect(user.errors[:name]).to include("を入力してください")
     end
 
+    it "既に登録されている名前は登録できない" do
+      user = create(:user)
+      another_user = build(:user, name: user.name)
+      another_user.valid?
+      expect(another_user.errors[:name]).to include("はすでに存在します")
+    end
+
+    it "名前が7文字以内だと登録できる " do
+      user = build(:user, name: "テストユーザー")
+      user.valid?
+      expect(user).to be_valid
+    end
+
+    it "名前が7文字以上だと登録できない " do
+      user = build(:user, name: "登録できないテストユーザー")
+      user.valid?
+      expect(user.errors[:name]).to include("は7文字以内で入力してください")
+    end
+
     it "メールアドレスがブランクだと登録できない" do
       user = build(:user, email: nil)
       user.valid?
@@ -38,13 +57,13 @@ describe User do
       expect(another_user.errors[:email]).to include("はすでに存在します")
     end
 
-    it "パスワードが6文字以上であれば登録できる " do
+    it "パスワードが6文字以上だと登録できる " do
       user = build(:user, password: "123456", password_confirmation: "123456")
       user.valid?
       expect(user).to be_valid
     end
 
-    it "パスワードが5文字以下であれば登録できない " do
+    it "パスワードが5文字以下だと登録できない " do
       user = build(:user, password: "12345", password_confirmation: "12345")
       user.valid?
       expect(user.errors[:password]).to include("は6文字以上で入力してください")
