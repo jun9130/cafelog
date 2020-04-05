@@ -54,7 +54,8 @@
           写真
       .shop-post-photos__content
         - @images.each do |image|
-          = image_tag "#{image.image_url}", size: "200x150", alt: "サムネイル", class: "thumb"
+          = link_to image.image.url, 'data-lightbox': image.image do
+            = image_tag "#{image.image_url}", size: "200x150" if image.image?
           
     .shop-review.my-5
       .shop-review__title.mb-3
