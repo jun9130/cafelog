@@ -4,9 +4,9 @@
       .upper-mypage__left.col-4
         .upper-mypage__left__avatar
         - if @user.user_image?
-          = image_tag @user.user_image_url, size: "250x250", alt: "アバター", class: "avatar my-3 img-fluid"
+          = image_tag @user.user_image_url, alt: "アバター", class: "avatar my-3"
         - else
-          = image_tag "default_avatar.png", size: "250x250", alt: "アバター", class: "avatar my-3 img-fluid"
+          = image_tag "default_avatar.png", alt: "アバター", class: "avatar my-3"
       .upper-mypage__right.col-8
         .upper-mypage__right__username.pt-5
           = @user.name
