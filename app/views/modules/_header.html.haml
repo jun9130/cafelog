@@ -10,11 +10,15 @@
     -if user_signed_in?    
       %ul.navbar-nav
         %li.nav-item
-          = link_to current_user.name, user_path(current_user), class: 'nav-link text-white'
-        %li.nav-item
           = link_to "カフェ一覧", root_path, class: 'nav-link text-white'
         %li.nav-item
           = link_to "新しいカフェの登録", new_shop_path, class: 'nav-link text-white'
+        %li.nav-item
+          = link_to current_user.name, user_path(current_user), class: 'nav-link text-white'
+          - if current_user.user_image?
+            = link_to image_tag(current_user.user_image_url, class: "header-avatar"), user_path(current_user)
+          - else
+            = link_to image_tag("default_avatar.png", class: "header-avatar"), user_path(current_user)
         %li.nav-item
           = link_to "ログアウト", destroy_user_session_path, method: :delete,  class: 'nav-link text-white'
     -else
