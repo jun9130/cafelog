@@ -25,7 +25,7 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @images = @shop.shop_images
     @image = @images.first
-    @reviews = @shop.reviews.includes(:user)
+    @reviews = @shop.reviews.includes(:user).order('updated_at DESC')
   end
 
   def edit

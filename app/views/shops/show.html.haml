@@ -68,9 +68,9 @@
               .shop-reviews__content__left.mr-3.pb-3.col-1
                 .shop-reviews__content__left__avatar
                   - if review.user.user_image?
-                    = link_to image_tag(review.user.user_image_url, size: "60x60", alt: "アバター", class: "avatar my-1 img-fluid"), user_path(review.user.id)
+                    = link_to image_tag(review.user.user_image_url, alt: "アバター", class: "review-avatar my-1"), user_path(review.user.id)
                   - else
-                    = link_to image_tag("default_avatar.png", size: "60x60", alt: "アバター", class: "avatar my-1 img-fluid"), user_path(review.user.id)
+                    = link_to image_tag("default_avatar.png", alt: "アバター", class: "review-avatar my-1"), user_path(review.user.id)
                 .shop-reviews__content__left__user-name.text-center
                   = link_to review.user.name , user_path(review.user.id),class: "text-dark"
               .shop-reviews__content__main.col-9
