@@ -40,7 +40,7 @@
 .shop-reviews__content__main {
 &__text {
   word-break: break-all
-} 
+ } 
 }
 
 .tag-name {
@@ -60,5 +60,12 @@
   border-radius: 30px;
   background: $green;
   color: $white;
+}
+
+.review-avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
