@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :shops
   has_many :reviews
+  has_many :likes
+  has_many :liked_shops, through: :likes, source: :shop
 
   mount_uploader :user_image, ImageUploader
 
