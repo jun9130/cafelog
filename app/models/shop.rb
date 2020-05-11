@@ -7,6 +7,8 @@ class Shop < ApplicationRecord
 
   has_many :shop_tags, dependent: :destroy
   has_many :tags, through: :shop_tags
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
 
   validates :name, presence: { message: "を入力してください" }
   validates :access, presence: { message: "を入力してください" }

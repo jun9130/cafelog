@@ -69,3 +69,19 @@
   object-fit: cover;
 }
 
+.like-button {
+  color: rgb(224, 36, 94);
+}
+.like-button:hover {
+  color:rgb(101, 119, 134);
+  opacity: 0.7;
+}
+
+.like-button-yet {
+  color: rgb(101, 119, 134);
+}
+
+.like-button-yet:hover {
+  color: rgb(224, 36, 94);
+  opacity: 0.7;
+}

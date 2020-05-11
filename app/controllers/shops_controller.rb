@@ -26,6 +26,7 @@ class ShopsController < ApplicationController
     @images = @shop.shop_images
     @image = @images.first
     @reviews = @shop.reviews.includes(:user).order('updated_at DESC')
+    @like = Like.new
   end
 
   def edit

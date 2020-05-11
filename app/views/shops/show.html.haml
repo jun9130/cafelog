@@ -12,9 +12,9 @@
     .shop-content.d-flex.mb-5
       .shop-photo
         - if @image 
-          = image_tag @image.image_url, size: "500x320", alt: "メイン画像", class: "mainImage"
+          = image_tag @image.image_url, size: "500x330", alt: "メイン画像", class: "mainImage"
         - else
-          = image_tag "no-image-show.png", size: "500x320", alt: "メイン画像", class: "mainImage"
+          = image_tag "no-image-show.png", size: "500x330", alt: "メイン画像", class: "mainImage"
       %table.table.ml-3
         %tr
           %th 
@@ -48,6 +48,21 @@
               - @shop.tags.each do |tag|
                 .tag-name
                   = tag.name
+        %tr
+          %th 
+            お気に入り
+            %td
+
+              - if current_user.already_liked?(@shop)
+                = link_to shop_like_path(@shop), class: "like-button", method: :delete do
+                  %i.fas.fa-heart
+                  = "#{@shop.likes.count}"
+              - else
+                = link_to shop_likes_path(@shop), class: "like-button-yet", method: :post do
+                  %i.fas.fa-heart
+                  = "#{@shop.likes.count}"
+
+              
     .shop-other-photos
       .shop-other-photos__header
         .shop-post-photos__header__title.mb-3
