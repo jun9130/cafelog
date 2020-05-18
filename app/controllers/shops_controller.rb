@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  before_action :set_shop, only: [:edit, :update]
+  before_action :set_shop, only: [:show, :edit, :update]
 
   
   def new
@@ -22,7 +22,6 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:id])
     @images = @shop.shop_images
     @image = @images.first
     @reviews = @shop.reviews.includes(:user).order('updated_at DESC')
