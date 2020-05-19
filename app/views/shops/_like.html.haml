@@ -1,0 +1,8 @@
+- if current_user.already_liked?(@shop)
+  = link_to shop_like_path(@shop), class: "like-button", method: :delete, remote: true do
+    %i.fas.fa-heart
+    = "#{@shop.likes.count}"
+- else
+  = link_to shop_likes_path(@shop), class: "like-button-yet", method: :post, remote: true do
+    %i.fas.fa-heart
+    = "#{@shop.likes.count}"
