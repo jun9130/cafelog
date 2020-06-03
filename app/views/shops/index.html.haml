@@ -2,9 +2,7 @@
   %h1.catchCopy お気に入りの カフェ を 見つけよう。
 .container.my-5
   .top
-    .top__contents
-      .top__contents__shops
-        .top__contents__shops__list
-          %h3 #新着順
-        = render partial: 'modules/shops'
+    .top-title
+      %h3 #新着順
+    = render partial: 'modules/shops'
   = paginate(@shops)

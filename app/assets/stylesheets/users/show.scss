@@ -1,6 +1,10 @@
 .mypage {
-  margin: 0 auto;
+  @include main-padding;
+}
+
+.upper-mypage {
   width: 80%;
+  margin: 0 auto;
 }
 
 .user-edit-button {

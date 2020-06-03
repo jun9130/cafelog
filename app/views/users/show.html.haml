@@ -1,36 +1,38 @@
 .container.mt-5
   .mypage
-    .upper-mypage.row
-      .upper-mypage__left.col-4
-        .upper-mypage__left__avatar
-        - if @user.user_image?
-          = image_tag @user.user_image_url, alt: "アバター", class: "avatar my-3"
-        - else
-          = image_tag "default_avatar.png", alt: "アバター", class: "avatar my-3"
-      .upper-mypage__right.col-8
-        .upper-mypage__right__username.pt-5
-          = @user.name
-          - if user_signed_in? && @user.id == current_user.id
-            = link_to "プロフィールを編集", edit_user_path(current_user), class: "user-edit-button float-right"
-        .upper-mypage__right__profile.pt-5
-          = @user.profile_description
-    .lower-mypage.row
-    %ul#pills-tab.nav.nav-pills.mb-3{:role => "tablist"}
-      %li.nav-item.lower-mypage-tab
-        %a#pills-registered-cafe-tab.nav-link.mypage-tab.active{"aria-controls" => "pills-registered-cafe", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-registered-cafe", :role => "tab"} 登録したカフェ
-      %li.nav-item.lower-mypage-tab
-        %a#pills-review-tab.nav-link.mypage-tab{"aria-controls" => "pills-review", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-review", :role => "tab"} お気に入り
-    #pills-tabContent.tab-content
-      #pills-registered-cafe.tab-pane.fade.show.active{"aria-labelledby" => "pills-registered-cafe-tab", :role => "tabpanel"}
-        - if @shops.present?
-          = render partial: 'modules/shops'
-        - else
-          登録したカフェはありません。
-      #pills-review.tab-pane.fade{"aria-labelledby" => "pills-review-tab", :role => "tabpanel"} 
-        - if @reviews.present?
-          = render partial: 'modules/shops'
-        - else
-          お気に入りはありません。
+    .upper-mypage
+      .row
+        .upper-mypage__left.col-4
+          .upper-mypage__left__avatar
+          - if @user.user_image?
+            = image_tag @user.user_image_url, alt: "アバター", class: "avatar my-3"
+          - else
+            = image_tag "default_avatar.png", alt: "アバター", class: "avatar my-3"
+        .upper-mypage__right.col-8
+          .upper-mypage__right__username.pt-5
+            = @user.name
+            - if user_signed_in? && @user.id == current_user.id
+              = link_to "プロフィールを編集", edit_user_path(current_user), class: "user-edit-button float-right"
+          .upper-mypage__right__profile.pt-5
+            = @user.profile_description
+    .lower-mypage
+      .row
+      %ul#pills-tab.nav.nav-pills.mb-3{:role => "tablist"}
+        %li.nav-item.lower-mypage-tab
+          %a#pills-registered-cafe-tab.nav-link.mypage-tab.active{"aria-controls" => "pills-registered-cafe", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-registered-cafe", :role => "tab"} 登録したカフェ
+        %li.nav-item.lower-mypage-tab
+          %a#pills-review-tab.nav-link.mypage-tab{"aria-controls" => "pills-review", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-review", :role => "tab"} お気に入り
+      #pills-tabContent.tab-content
+        #pills-registered-cafe.tab-pane.fade.show.active{"aria-labelledby" => "pills-registered-cafe-tab", :role => "tabpanel"}
+          - if @shops.present?
+            = render partial: 'modules/shops'
+          - else
+            登録したカフェはありません。
+        #pills-review.tab-pane.fade{"aria-labelledby" => "pills-review-tab", :role => "tabpanel"} 
+          - if @reviews.present?
+            = render partial: 'modules/shops'
+          - else
+            お気に入りはありません。
 
 
 

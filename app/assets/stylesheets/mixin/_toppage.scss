@@ -12,3 +12,7 @@
     color: gray;
   }
 }
+
+@mixin  main-padding {
+  padding: 50px 30px;
+}
