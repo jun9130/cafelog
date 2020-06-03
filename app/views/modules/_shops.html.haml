@@ -1,17 +1,14 @@
-.top__contents__shops__reviews
-  .row
+.top-contents
   - @shops.each do |shop|
-    .top__contents__shops__reviews__item
+    .top-contents__shop
       = link_to shop_path(shop) , class: "link" do
-        .top__contents__shops__reviews__item__info
-          .top__contents__shops__reviews__item__info__name
-            = shop.name
-          .top__contents__shops__reviews__item__photo
-          - image = shop.shop_images[0]
-          - if shop.shop_images.present?
-            = image_tag "#{image.image}", size: "300x300"
-          - else
-            = image_tag "no-image-index.png", size: "300x300"
-
-      .top__contents__shops__reviews__item__info__station
+        .top-contents__shop-name
+          = shop.name
+        .top-contents__shop-image
+        - image = shop.shop_images[0]
+        - if shop.shop_images.present?
+          = image_tag "#{image.image}", class: "shop-first-image", size: "300x300"
+        - else
+          = image_tag "no-image-index.png", class: "shop-first-image", size: "300x300"
+      .top-contents__shop-access
         = shop.access
