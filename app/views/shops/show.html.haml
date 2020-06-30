@@ -9,55 +9,56 @@
           = link_to @shop.user.name, user_path(@shop.user.id),class: "text-dark"
           - if user_signed_in? && @shop.user_id == current_user.id
             = link_to "編集", edit_shop_path, class: "shop-edit-button float-right"
-    .shop-content.d-flex.mb-5
-      .shop-photo
-        - if @image 
-          = image_tag @image.image_url, size: "500x330", alt: "メイン画像", class: "mainImage"
-        - else
-          = image_tag "no-image-show.png", size: "500x330", alt: "メイン画像", class: "mainImage"
-      %table.table.ml-3
-        %tr
-          %th 
-            最寄駅
-            %td
-              = @shop.access
-        %tr
-          %th 
-            住所
-            %td
-              = @shop.address
-        %tr
-          %th 
-            営業時間
-            %td
-              = @shop.business_hours
-        %tr
-          %th 
-            定休日
-            %td
-              = @shop.holiday
-        %tr
-          %th 
-            席数
-            %td
-              = "#{@shop.seat}席"
-        %tr
-          %th 
-            タグ
-            %td
-              - @shop.tags.each do |tag|
-                .tag-name
-                  = tag.name
-        %tr
-          %th 
-            お気に入り
-            %td
-              - if user_signed_in?
-                = render partial: 'like'
-              - else
-                %i.fas.fa-heart.like-button
-                = "#{@shop.likes.count}"
-              
+    .shop-content.mb-5
+      .d-flex.flex-lg-row.flex-column
+        .shop-photo
+          - if @image 
+            = image_tag @image.image_url, size: "500x330", alt: "メイン画像", class: "mainImage"
+          - else
+            = image_tag "no-image-show.png", size: "500x330", alt: "メイン画像", class: "mainImage"
+        %table.table.ml-3
+          %tr
+            %th 
+              最寄駅
+              %td
+                = @shop.access
+          %tr
+            %th 
+              住所
+              %td
+                = @shop.address
+          %tr
+            %th 
+              営業時間
+              %td
+                = @shop.business_hours
+          %tr
+            %th 
+              定休日
+              %td
+                = @shop.holiday
+          %tr
+            %th 
+              席数
+              %td
+                = "#{@shop.seat}席"
+          %tr
+            %th 
+              タグ
+              %td
+                - @shop.tags.each do |tag|
+                  .tag-name
+                    = tag.name
+          %tr
+            %th 
+              お気に入り
+              %td
+                - if user_signed_in?
+                  = render partial: 'like'
+                - else
+                  %i.fas.fa-heart.like-button
+                  = "#{@shop.likes.count}"
+                
     .shop-other-photos
       .shop-other-photos__header
         .shop-post-photos__header__title.mb-3
