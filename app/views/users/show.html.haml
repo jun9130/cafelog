@@ -2,22 +2,22 @@
   .mypage
     .upper-mypage
       .row
-        .upper-mypage__left.col-4
+        .upper-mypage__left.col-12.col-lg-4
           .upper-mypage__left__avatar
-          - if @user.user_image?
-            = image_tag @user.user_image_url, alt: "アバター", class: "avatar my-3"
-          - else
-            = image_tag "default_avatar.png", alt: "アバター", class: "avatar my-3"
-        .upper-mypage__right.col-8
-          .upper-mypage__right__username.pt-5
+            - if @user.user_image?
+              = image_tag @user.user_image_url, alt: "アバター", class: "avatar"
+            - else
+              = image_tag "default_avatar.png", alt: "アバター", class: "avatar"
+        .upper-mypage__right.col-12.col-lg-8
+          .upper-mypage__right__username
             = @user.name
             - if user_signed_in? && @user.id == current_user.id
-              = link_to "プロフィールを編集", edit_user_path(current_user), class: "user-edit-button float-right"
-          .upper-mypage__right__profile.pt-5
+              = link_to "編集", edit_user_path(current_user), class: "btn btn-success rounded-pill"
+          .upper-mypage__right__profile
             = @user.profile_description
     .lower-mypage
       .row
-      %ul#pills-tab.nav.nav-pills.mb-3{:role => "tablist"}
+      %ul#pills-tab.nav.nav-pills.mb-3.justify-content-center{:role => "tablist"}
         %li.nav-item.lower-mypage-tab
           %a#pills-registered-cafe-tab.nav-link.mypage-tab.active{"aria-controls" => "pills-registered-cafe", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-registered-cafe", :role => "tab"} 登録したカフェ
         %li.nav-item.lower-mypage-tab

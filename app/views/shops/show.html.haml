@@ -2,7 +2,7 @@
   .shop
     .shop-data.pt-5.pb-3
       .shop-data__upper
-        .shop-data__upper__name
+        .shop-data__upper__name.font-weight-bold
           = @shop.name
         .shop-data__upper__registered-person
           登録者:
@@ -61,7 +61,7 @@
                 
     .shop-other-photos
       .shop-other-photos__header
-        .shop-post-photos__header__title.mb-3
+        .shop-post-photos__header__title.font-weight-bold.mb-3
           写真
       .shop-post-photos__content
         - @images.each do |image|
@@ -69,7 +69,7 @@
             = image_tag "#{image.image_url}", size: "200x150" if image.image?
           
     .shop-review.my-5
-      .shop-review__title.mb-3
+      .shop-review__title.font-weight-bold.mb-3
         レビュー一覧
         = link_to "レビューを書く", "/shops/#{@shop.id}/reviews/new", class: "shop-review-button float-right"
       .shop-review__wrapper

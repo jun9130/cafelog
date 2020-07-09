@@ -1,19 +1,18 @@
 .shop {
   width: 100%;
   &-data {
-      font-size: 24px;
-      font-weight: bold;
-      &__upper__registered-person {
-        font-size: 16px;
-        font-weight: normal;
-      }
+      font-size: 1.5rem;
+      &__upper {
+        &__registered-person {
+          font-size: 1rem;
+        }
+      }   
     }
 }
 
-
 .shop-edit-button {
   display: inline-block;
-  font-size: 16px;
+  font-size: 1rem;
   margin-left: 10px;
   padding: 7px 20px;
   border-radius: 30px;
@@ -23,7 +22,7 @@
 
 .shop-review-button {
   display: inline-block;
-  font-size: 12px;
+  font-size: 0.8rem;
   margin-left: 10px;
   padding: 7px 20px;
   border-radius: 30px;
@@ -49,12 +48,12 @@
   background: $green;
   color: $white;
   padding: 1px 9px;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .review-delete-btn {
   display: inline-block;
-  font-size: 12px;
+  font-size: 0.7rem;
   margin-left: 10px;
   padding: 7px 20px;
   border-radius: 30px;
