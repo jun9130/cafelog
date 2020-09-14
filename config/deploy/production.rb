@@ -60,4 +60,4 @@
 #     # password: "please use keys"
 #   }
 
-server '18.178.195.225', user: 'ec2-user', roles: %w{app db web}
+server '18.180.103.99', user: 'ec2-user', roles: %w{app db web}
