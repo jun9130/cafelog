@@ -15,7 +15,7 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'cafelog2020'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/cafelog2020'
+  config.fog_directory  = 'cafelog1991'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/cafelog1991'
  end
 end
