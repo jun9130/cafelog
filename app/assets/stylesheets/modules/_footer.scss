@@ -3,8 +3,10 @@
   background-color: $green;
   color: $white;
   text-align: center;
-  &__item {
-    padding: 1rem;
+  &__page {
+    font-size: 0.8rem;
+  }
+  &__logo {
     margin-bottom: 0;
   }
 }

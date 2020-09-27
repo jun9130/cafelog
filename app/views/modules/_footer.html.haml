@@ -1,2 +1,8 @@
 %footer.footer
-  %p.footer__item &copy; 2020 Cafelog
+  .footer__page.d-flex.justify-content-center.pt-2
+    .footer__page__rule.pl-4
+      = link_to "利用規約", pages_rule_path, class:"text-white" 
+    .footer__page__privacy.pl-1
+      = link_to "プライバシーポリシー", pages_privacy_path, class:"text-white"
+  .footer__logo.pb-2
+    &copy; 2020 Cafelog
