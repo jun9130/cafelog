@@ -9,7 +9,7 @@ class ShopsController < ApplicationController
   end
 
   def create
-    @shop = Shop.new(shop_params)
+    @shop = Shop.new(shop_params) #フォームの内容をDBに保存
     if @shop.save
       redirect_to root_path, notice: 'カフェを登録しました'
     else
