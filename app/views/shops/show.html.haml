@@ -48,7 +48,7 @@
               %td
                 - @shop.tags.each do |tag|
                   .tag-name
-                    = tag.name
+                    = link_to tag.name, tag_shops_path(tag_id: tag.id),class: "tag-name-button"
           %tr
             %th 
               お気に入り
