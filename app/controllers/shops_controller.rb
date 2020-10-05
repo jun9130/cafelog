@@ -39,6 +39,11 @@ class ShopsController < ApplicationController
     end
   end
 
+  def search
+    @tag = Tag.find(params[:tag_id]) 
+    @shops = @tag.shops.all
+  end
+
   private
 
   def set_shop

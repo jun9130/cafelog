@@ -1,0 +1,7 @@
+.container.my-5
+  .top.shop-search-result.text-center
+    %h2 #{@tag.name} 
+    %p の検索結果
+    .shop-search-result-number
+      %p #{@shops.length}件表示
+      = render partial: 'modules/shops'
