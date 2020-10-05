@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   
   resources :searches, only: [:index]
+
+  resources :tags do
+    get 'shops', to: 'shops#search'
+  end
   
   get 'pages/privacy' => 'pages#privacy'
   get 'pages/rule' => 'pages#rule'
