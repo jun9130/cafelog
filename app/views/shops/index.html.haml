@@ -1,8 +1,9 @@
 .top-image
   %h1.catchCopy お気に入りの カフェ が きっと 見つかる
 .container.my-5
-  .top.row
-    .top-title
-      %h3 #新着順
+  .top
+    .top-group.row
+      .top-title
+        %h3 #新着順
       = render partial: 'modules/shops'
   = paginate(@shops)
