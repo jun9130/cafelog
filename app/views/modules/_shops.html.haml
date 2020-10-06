@@ -7,8 +7,8 @@
         .top-contents__shop-image
         - image = shop.shop_images[0]
         - if shop.shop_images.present?
-          = image_tag "#{image.image}", class: "shop-first-image", size: "300x300"
+          = image_tag "#{image.image}", class: "shop-first-image mx-auto d-block", size: "300x300"
         - else
-          = image_tag "no-image-index.png", class: "shop-first-image", size: "300x300"
+          = image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block", size: "300x300"
       .top-contents__shop-access
         = shop.access
