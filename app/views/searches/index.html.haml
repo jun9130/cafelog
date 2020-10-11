@@ -1,10 +1,10 @@
-.container.my-5
-  .top.shop-search-result.text-center
-    %h2 #{@keyword} 
-    %p の検索結果
+.top.container.my-5
+  .shop-search-result.mb-5.p-5
+    %h2.text-center.font-weight-bold #{@keyword} 
+    %p.text-center の検索結果
     - if @shops.present?
       .shop-search-result-number
-        %p #{@shops.length}件表示
+        %p.text-center #{@shops.length}件表示
         = render partial: 'modules/shops'
     - else
       .shop-search-result-description.text-center
