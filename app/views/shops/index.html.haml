@@ -1,9 +1,33 @@
 .top-image
   %h1.catchCopy お気に入りの カフェ が きっと 見つかる
-.container.my-5
-  .top
-    .top-group.row
-      .top-title
-        %h3 #新着順
-      = render partial: 'modules/shops'
+.top.container.my-5
+  .top-group.mb-5.p-5
+    .top-title
+      %h3.font-weight-bold タグから探す
+    .tag-content.row
+      %ul.tag-list.p-3
+        %li.tag-item.mt-1.mr-2.py-1.px-2
+          = link_to "wi-fiあり", "/tags/1/shops"
+        %li.tag-item.mt-1.mr-2.py-1.px-2
+          = link_to "電源あり", "tags/2/shops"
+        %li.tag-item.mt-1.mr-2.py-1.px-2
+          = link_to "駅から徒歩5分", "tags/3/shops"
+        %li.tag-item.mt-1.mr-2.py-1.px-2
+          = link_to "50席以上", "tags/4/shops"
+        %li.tag-item.mt-1.mr-2.py-1.px-2
+          = link_to "禁煙", "tags/5/shops"
+        %li.tag-item.mt-1.mr-2.py-1.px-2
+          = link_to "分煙", "tags/6/shops"
+        %li.tag-item.mt-1.mr-2.py-1.px-2
+          = link_to "喫煙可", "tags/7/shops"
+        %li.tag-item.mt-1.mr-2.py-1.px-2
+          = link_to "チェーン店", "tags/8/shops"
+        %li.tag-item.mt-1.mr-2.py-1.px-2
+          = link_to "純喫茶", "tags/9/shops"  
+  
+  .top-group.mb-5.p-5
+    .top-title
+      %h3.font-weight-bold 新着順
+    = render partial: 'modules/shops'   
+
   = paginate(@shops)

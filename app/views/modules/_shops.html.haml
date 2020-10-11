@@ -1,14 +1,14 @@
-.top-contents
+.top-contents.row
   - @shops.each do |shop|
-    .top-contents__shop.font-weight-bold
+    .top-contents__shop.py-5.font-weight-bold
       = link_to shop_path(shop) , class: "link" do
-        .top-contents__shop-name
+        .top-contents__shop-name.font-weight-bold
           = shop.name
         .top-contents__shop-image
         - image = shop.shop_images[0]
         - if shop.shop_images.present?
-          = image_tag "#{image.image}", class: "shop-first-image mx-auto d-block", size: "300x300"
+          = image_tag "#{image.image}", class: "shop-first-image mx-auto d-block"
         - else
-          = image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block", size: "300x300"
-      .top-contents__shop-access
+          = image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block"
+      .top-contents__shop-access.font-weight-bold
         = shop.access
