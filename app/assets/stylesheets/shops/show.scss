@@ -1,14 +1,16 @@
-.shop {
-  width: 100%;
-  &-data {
-      font-size: 1.5rem;
-      &__upper {
-        &__registered-person {
-          font-size: 1rem;
-        }
-      }   
-    }
+.shop-data {
+  &__upper__name {
+    font-size: 1.5rem;
+  }
+  &__upper__registered-person {
+    font-size: 1rem;
+  }
+  &__table {
+    min-width: 500px;
+  }
 }
+
+
 
 .shop-edit-button {
   display: inline-block;
