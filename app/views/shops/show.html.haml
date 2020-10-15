@@ -1,102 +1,99 @@
-.container.my-5
-  .shop
-    .shop-data.pt-5.pb-3
-      .shop-data__upper
-        .shop-data__upper__name.font-weight-bold
-          = @shop.name
-        .shop-data__upper__registered-person
-          登録者:
-          = link_to @shop.user.name, user_path(@shop.user.id),class: "text-dark"
-          - if user_signed_in? && @shop.user_id == current_user.id
-            = link_to "編集", edit_shop_path, class: "shop-edit-button float-right"
-    .shop-content.mb-5
-      .d-flex.flex-lg-row.flex-column
-        .shop-photo
-          - if @image 
-            = image_tag @image.image_url, size: "500x330", alt: "メイン画像", class: "mainImage"
-          - else
-            = image_tag "no-image-show.png", size: "500x330", alt: "メイン画像", class: "mainImage"
-        %table.table.ml-3
-          %tr
-            %th 
-              最寄駅
-              %td
-                = @shop.access
-          %tr
-            %th 
-              住所
-              %td
-                = @shop.address
-          %tr
-            %th 
-              営業時間
-              %td
-                = @shop.business_hours
-          %tr
-            %th 
-              定休日
-              %td
-                = @shop.holiday
-          %tr
-            %th 
-              席数
-              %td
-                = "#{@shop.seat}席"
-          %tr
-            %th 
-              タグ
-              %td
-                - @shop.tags.each do |tag|
-                  .tag-name
-                    = link_to tag.name, tag_shops_path(tag_id: tag.id),class: "tag-name-button"
-          %tr
-            %th 
-              お気に入り
-              %td
-                - if user_signed_in?
-                  = render partial: 'like'
+.shop-data.container.my-5
+  .shop-data__upper.pt-5.pb-3.pl-5
+    .shop-data__upper__name.font-weight-bold
+      = @shop.name
+    .shop-data__upper__registered-person
+      登録者:
+      = link_to @shop.user.name, user_path(@shop.user.id),class: "text-dark"
+      - if user_signed_in? && @shop.user_id == current_user.id
+        = link_to "編集", edit_shop_path, class: "shop-edit-button float-right mr-5"
+  .shop-data-content.d-flex.flex-lg-row.flex-column.mb-5.pl-5
+    .shop-photo
+      - if @image 
+        = image_tag @image.image_url, size: "500x330", alt: "メイン画像", class: "mainImage"
+      - else
+        = image_tag "no-image-show.png", size: "500x330", alt: "メイン画像", class: "mainImage"
+    .shop-data__table
+      %table.table.ml-3
+        %tr
+          %th 
+            最寄駅
+            %td
+              = @shop.access
+        %tr
+          %th 
+            住所
+            %td
+              = @shop.address
+        %tr
+          %th 
+            営業時間
+            %td
+              = @shop.business_hours
+        %tr
+          %th 
+            定休日
+            %td
+              = @shop.holiday
+        %tr
+          %th 
+            席数
+            %td
+              = "#{@shop.seat}席"
+        %tr
+          %th 
+            タグ
+            %td
+              - @shop.tags.each do |tag|
+                .tag-name
+                  = link_to tag.name, tag_shops_path(tag_id: tag.id),class: "tag-name-button"
+        %tr
+          %th 
+            お気に入り
+            %td
+              - if user_signed_in?
+                = render partial: 'like'
+              - else
+                %i.fas.fa-heart.like-button
+                = "#{@shop.likes.count}"             
+  .shop-other-photos.pl-5
+    .shop-other-photos__header
+      .shop-post-photos__header__title.font-weight-bold.mb-3
+        写真
+    .shop-post-photos__content
+      - @images.each do |image|
+        = link_to image.image.url, 'data-lightbox': image.image do
+          = image_tag "#{image.image_url}", size: "200x150" if image.image?
+        
+  .shop-review.my-5.pl-5
+    .shop-review__title.font-weight-bold.mb-3
+      レビュー一覧
+      = link_to "レビューを書く", "/shops/#{@shop.id}/reviews/new", class: "shop-review-button float-right"
+    .shop-review__wrapper.pb-5
+      - if @reviews.present?
+        - @reviews.each do |review|
+          .shop-reviews__content.pt-3.pb-3
+            .shop-reviews__content__left.mr-3.pb-3.col-1
+              .shop-reviews__content__left__avatar
+                - if review.user.user_image?
+                  = link_to image_tag(review.user.user_image_url, alt: "アバター", class: "review-avatar my-1"), user_path(review.user.id)
                 - else
-                  %i.fas.fa-heart.like-button
-                  = "#{@shop.likes.count}"
-                
-    .shop-other-photos
-      .shop-other-photos__header
-        .shop-post-photos__header__title.font-weight-bold.mb-3
-          写真
-      .shop-post-photos__content
-        - @images.each do |image|
-          = link_to image.image.url, 'data-lightbox': image.image do
-            = image_tag "#{image.image_url}", size: "200x150" if image.image?
-          
-    .shop-review.my-5
-      .shop-review__title.font-weight-bold.mb-3
-        レビュー一覧
-        = link_to "レビューを書く", "/shops/#{@shop.id}/reviews/new", class: "shop-review-button float-right"
-      .shop-review__wrapper
-        - if @reviews.present?
-          - @reviews.each do |review|
-            .shop-reviews__content.pt-3.pb-3
-              .shop-reviews__content__left.mr-3.pb-3.col-1
-                .shop-reviews__content__left__avatar
-                  - if review.user.user_image?
-                    = link_to image_tag(review.user.user_image_url, alt: "アバター", class: "review-avatar my-1"), user_path(review.user.id)
-                  - else
-                    = link_to image_tag("default_avatar.png", alt: "アバター", class: "review-avatar my-1"), user_path(review.user.id)
-                .shop-reviews__content__left__user-name.text-center
-                  = link_to review.user.name , user_path(review.user.id),class: "text-dark"
-              .shop-reviews__content__main.col-9
-                .shop-reviews__content__main__text.mr-3.pt-3
-                  = review.text
-                .shop-reviews__content__main__star
-                  = review.created_at.to_s(:date)
-                  - @star_on = review.rate
-                  - @star_off = 5 - @star_on
-                  - @star_on.times do
-                    =image_tag "star-on.png"
-                  - @star_off.times do
-                    =image_tag "star-off.png"
-              .shop-reviews__content__delete.col-2
-                - if user_signed_in? && current_user.id == review.user_id
-                  = link_to '削除', "/shops/#{review.shop.id}/reviews/#{review.id}", method: :delete, class: "review-delete-btn float-right"
-        - else
-          レビューはまだありません。
+                  = link_to image_tag("default_avatar.png", alt: "アバター", class: "review-avatar my-1"), user_path(review.user.id)
+              .shop-reviews__content__left__user-name.text-center
+                = link_to review.user.name , user_path(review.user.id),class: "text-dark"
+            .shop-reviews__content__main.col-9
+              .shop-reviews__content__main__text.mr-3.pt-3
+                = review.text
+              .shop-reviews__content__main__star
+                = review.created_at.to_s(:date)
+                - @star_on = review.rate
+                - @star_off = 5 - @star_on
+                - @star_on.times do
+                  =image_tag "star-on.png"
+                - @star_off.times do
+                  =image_tag "star-off.png"
+            .shop-reviews__content__delete.col-2
+              - if user_signed_in? && current_user.id == review.user_id
+                = link_to '削除', "/shops/#{review.shop.id}/reviews/#{review.id}", method: :delete, class: "review-delete-btn float-right"
+      - else
+        レビューはまだありません。
