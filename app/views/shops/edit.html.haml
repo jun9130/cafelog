@@ -1,4 +1,4 @@
-.container.my-5
+.shop-edit.container.my-5
   %h1.shop__header.text-center.py-5 登録情報の編集 
   .shop-form
     = form_for @shop do |f|
@@ -27,6 +27,20 @@
             = tag.label do
               = tag.check_box
               = tag.text
+      .form-label
+        写真（5枚までアップロード）
+        .image-upload
+          = render partial: 'image-box', collection: @shop.shop_images, as: "photo"
+          #preview
+          -if @shop.shop_images.length <= 4
+            %label{for: "shop_images_attributes_#{@shop.shop_images.length}", class: "uploader", id: "label-box--#{@shop.shop_images.length}", style:"display:block"}
+              .sell-upload-drop-box
+                %pre クリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :shop_images do |image|
+              = image.file_field :image , class: "hidden-field"
+            - @shop.shop_images.length.upto(4) do |i|
+              %input{id: "shop_images_attributes_#{i}", class: "update-image", name: "shop[shop_images_attributes][#{i}][image]", type: "file"}
       .shop-form__form-group.mx-auto.col-4
         = f.submit ("変更する"), class: "shop-button" 
       .shop-form__form-group.mx-auto.col-4.my-4
