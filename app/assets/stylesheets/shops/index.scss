@@ -25,7 +25,7 @@
 }
 
 
-.top-group, .shop-new, .shop-data, .shop-search-result, .mypage-content, .privacy-content, .rule-content {
+.top-group, .shop-new, .shop-data, .shop-edit, .shop-search-result, .mypage-content, .privacy-content, .rule-content {
   background-color: #fff;
 }
 
@@ -57,6 +57,11 @@ ul.tag-list {
 img.shop-first-image{
   width: 300px;
   height: 300px;
+}
+
+// 画像プレビュー
+.hidden-content{
+  display: none;
 }
 
 // @include lg {
