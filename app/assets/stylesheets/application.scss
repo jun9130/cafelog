@@ -1,17 +1,10 @@
 @import "confing/colors";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-@import "devise/devise.scss";
-
-@import "mixin/toppage";
-
+@import "mixin/page";
 @import "modules/footer";
 @import "modules/header";
 @import "modules/flash";
-
-@import "shops/form";
-@import "shops/index";
-@import "shops/show";
-
-@import "users/show";
+@import "shops";
+@import "users";
+@import "devise";
