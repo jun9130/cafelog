@@ -1,0 +1,328 @@
+//共通背景
+.top-group, .shop-new, .shop-data, .shop-edit, .shop-search-result, .mypage-content, .privacy-content, .rule-content {
+  background-color: #fff;
+}
+
+//トップページ
+.top-image {
+  position: relative;
+  background-image: image-url("cafelog.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  width: 100%;
+  opacity: 0.9;
+}
+.catchCopy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  // 折り返さない
+  white-space: nowrap;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color: $white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: black 1px 1px 0px, black -1px 1px 0px, black 1px -1px 0px, black -1px -1px 0px;
+}
+
+ul.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-item {
+  background-color: $green;
+  border-radius: 2rem;
+  &-link {
+    font-size: 1rem;
+  }
+}
+
+.top-contents {
+  justify-content: space-around; 
+  flex-wrap: wrap;
+  &__shop-name {
+    color: $black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+img.shop-first-image{
+  width: 300px;
+  height: 300px;
+}
+
+//検索窓
+.search-form__input {
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 30px;
+}
+
+.search-form__input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+//カフェ登録
+.shop__header {
+  font-weight: bold;
+}
+
+.shop-form {
+  text-align: center;
+}
+
+.shop-form__form-group {
+  margin-bottom: 10px;
+}
+
+.shop__form-label {
+  padding: 10px 0;
+  letter-spacing: 0.05rem;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 30px;
+  
+}
+
+.shop__form-input{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 30px;
+}
+
+.shop__form-input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.shop-images__form {
+  border: none;
+}
+
+.shop-button {
+  display: inline-block;
+  width: 300px;
+  padding: 7px 20px;
+  background: $green;
+  color: $white;
+  border-radius: 30px;
+}
+
+.shop-button-back {
+  display: inline-block;
+  width: 150px;
+  padding: 7px 20px;
+  background: $green;
+  color: $white;
+  border-radius: 30px;
+}
+
+
+.shop-button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.review-form {
+  text-align: center;
+}
+
+.review-form__form-group {
+  margin-bottom: 10px;
+} 
+
+.review__form-input{
+  width: 80%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 30px;
+}
+
+.new-shop-button {
+  display: inline-block;
+  padding: 7px 20px;
+  background: $green;
+  color: $white;
+  border-radius: 30px;
+}
+
+.uploader{
+  width:600px;
+  height: 180px;
+  flex: 1;
+  position: relative;
+  min-height: 116px;
+  background: #f5f5f5;
+  border: 1px dashed #cccccc;
+  transition: box-shadow ease-out .3s;
+  cursor: pointer;
+  margin-top: 10px ;
+  display: none;
+  pre{
+    padding: 0 auto;
+    font-size: 15px;
+  }
+}
+
+.image-box{
+  display: none;
+}
+
+#image-label-0{
+  display: block;
+}
+
+#preview{
+  display: flex;
+  margin-right: 10px;
+}
+
+.img_view{
+  width: 180px;
+  margin: 10px 0 10px 10px;
+  height: 180px;
+  background-color: #f5f5f5;
+  img{
+    display: block;
+    max-width: 180px;
+    height: 150px;
+    margin: 0 auto;
+  }
+}
+
+.image-upload-button{
+  display: flex;
+  .btn{
+    width: 100%;
+    background: #f5f5f5;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #0099e8;
+    font-size: 14px;
+  }
+}
+
+.image-upload{
+  display: flex;
+  text-align: center;
+  height: 180px;
+  width: 100%;
+}
+
+// 画像プレビュー
+.hidden-content{
+  display: none;
+}
+
+
+//カフェ詳細
+.shop-data {
+  &__upper__name {
+    font-size: 1.5rem;
+  }
+  &__upper__registered-person {
+    font-size: 1rem;
+  }
+  &__table {
+    min-width: 500px;
+  }
+}
+
+.shop-edit-button {
+  display: inline-block;
+  font-size: 1rem;
+  margin-left: 10px;
+  padding: 7px 20px;
+  border-radius: 30px;
+  background: $green;
+  color: $white;
+}
+
+.shop-review-button {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  padding: 7px 20px;
+  border-radius: 30px;
+  background: $green;
+  color: $white;
+}
+
+.shop-reviews__content {
+  display: flex;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+.shop-reviews__content__main {
+&__text {
+  word-break: break-all
+ } 
+}
+
+.tag-name {
+  display: inline-block;
+  border-radius: 30px;
+  background: $green;
+  color: $white;
+  padding: 1px 9px;
+  font-size: 0.9rem;
+  &-button {
+    color: $white;
+  }
+}
+
+.like-button {
+  color: rgb(224, 36, 94);
+}
+.like-button:hover {
+  color: rgb(224, 36, 94);
+  opacity: 0.8;
+}
+
+.like-button-yet {
+  color: rgb(101, 119, 134);
+}
+
+.like-button-yet:hover {
+  color: rgb(224, 36, 94);
+  opacity: 0.5;
+}
+
+.review-delete-btn {
+  display: inline-block;
+  font-size: 0.7rem;
+  margin-left: 10px;
+  padding: 7px 20px;
+  border-radius: 30px;
+  background: $green;
+  color: $white;
+}
+
+.review-avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.shop-reviews__content__left__user-name{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.8rem;
+
+}
