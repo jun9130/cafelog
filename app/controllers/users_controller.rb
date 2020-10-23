@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @name = @user.name
     @shops = @user.shops.order('created_at DESC')
-    @reviews = @user.reviews.order('updated_at DESC')
+    @likes = @user.likes.order('updated_at DESC')
   end
 
   def edit

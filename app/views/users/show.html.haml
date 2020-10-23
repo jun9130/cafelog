@@ -29,8 +29,8 @@
           - else
             登録したカフェはありません。
         #pills-review.tab-pane.fade{"aria-labelledby" => "pills-review-tab", :role => "tabpanel"} 
-          - if @reviews.present?
-            = render partial: 'modules/shops'
+          - if @likes.present?
+            = render partial: 'modules/user_likes'
           - else
             お気に入りはありません。
 

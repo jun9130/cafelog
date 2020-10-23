@@ -1,0 +1,14 @@
+.top-contents.row
+  - @likes.each do |like|
+    .top-contents__shop.py-5.font-weight-bold
+      = link_to shop_path(like.shop.id) , class: "link" do
+        .top-contents__shop-name.font-weight-bold
+          = like.shop.name
+        .top-contents__shop-image
+        - image = like.shop.shop_images[0]
+        - if like.shop.shop_images.present?
+          = image_tag "#{image.image}", class: "shop-first-image mx-auto d-block"
+        - else
+          = image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block"
+      .top-contents__shop-access.font-weight-bold
+        = like.shop.access
