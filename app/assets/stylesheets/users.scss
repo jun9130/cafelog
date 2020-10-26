@@ -72,4 +72,15 @@ img.avatar {
   }
  }
 
- 
+
+ //ユーザーのレビュー
+ .user-shop-review__wrapper {
+   border-bottom: 2px solid #dfdfdf;
+ }
+ .shop-name {
+   color: $black;
+ }
+ .shop-name:hover {
+  color: $black;
+  opacity: 0.9;
+}
