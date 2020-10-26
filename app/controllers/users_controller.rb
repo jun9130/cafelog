@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @name = @user.name
     @shops = @user.shops.order('created_at DESC')
     @likes = @user.likes.order('updated_at DESC')
+    @reviews = @user.reviews.order('created_at DESC')
   end
 
   def edit

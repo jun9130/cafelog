@@ -8,3 +8,8 @@
 @import "shops";
 @import "users";
 @import "devise";
+
+//共通背景
+.top-group, .shop-new, .shop-data, .shop-edit, .shop-search-result, .mypage-content, .privacy-content, .rule-content {
+  background-color: $white;
+}

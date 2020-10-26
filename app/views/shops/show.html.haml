@@ -89,9 +89,9 @@
                 - @star_on = review.rate
                 - @star_off = 5 - @star_on
                 - @star_on.times do
-                  =image_tag "star-on.png"
+                  = image_tag "star-on.png"
                 - @star_off.times do
-                  =image_tag "star-off.png"
+                  = image_tag "star-off.png"
             .shop-reviews__content__delete.col-2
               - if user_signed_in? && current_user.id == review.user_id
                 = link_to '削除', "/shops/#{review.shop.id}/reviews/#{review.id}", method: :delete, class: "review-delete-btn float-right"
