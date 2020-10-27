@@ -79,8 +79,8 @@ img.avatar {
  }
  .shop-name {
    color: $black;
+   &:hover {
+    color: $black;
+    opacity: 0.9;
+  }
  }
- .shop-name:hover {
-  color: $black;
-  opacity: 0.9;
-}

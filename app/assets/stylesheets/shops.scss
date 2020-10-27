@@ -44,11 +44,26 @@ ul.tag-list {
 .top-contents {
   justify-content: space-around; 
   flex-wrap: wrap;
-  &__shop-name {
-    color: $black;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  color: $black;
+  &__shop {
+    position: relative;
+    &-access {
+      color: $black;
+      position: absolute;
+      left: 0;
+      top: 48px;
+      background-color: $green;
+      color: $white;
+      padding: 0.65rem 0.65rem;
+      min-width: 5rem;
+      text-align: center;
+    }
+    &-name {
+      color: $black;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
 }
 
@@ -264,19 +279,18 @@ img.shop-first-image{
 //お気に入り
 .like-button {
   color: rgb(224, 36, 94);
-}
-.like-button:hover {
-  color: rgb(224, 36, 94);
-  opacity: 0.8;
+  &:hover {
+    color: rgb(224, 36, 94);
+    opacity: 0.8;
+  }
 }
 
 .like-button-yet {
   color: rgb(101, 119, 134);
-}
-
-.like-button-yet:hover {
-  color: rgb(224, 36, 94);
-  opacity: 0.5;
+  &:hover {
+    color: rgb(224, 36, 94);
+    opacity: 0.5;
+  }
 }
 
 
