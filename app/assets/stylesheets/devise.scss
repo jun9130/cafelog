@@ -78,11 +78,10 @@
   background-color: $green;
   border: none;
   padding: 8px 0;
-}
-
-.btn-test-login:hover {
-  opacity: 0.5; /* リンクの透明度 */
-  text-decoration: none; /* 下線消す */
-  outline: none
+  &:hover {
+    opacity: 0.5; /* リンクの透明度 */
+    text-decoration: none; /* 下線消す */
+    outline: none
+  }
 }
 
