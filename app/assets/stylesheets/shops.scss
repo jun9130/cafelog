@@ -53,6 +53,7 @@ ul.tag-list {
       left: 0;
       top: 48px;
       background-color: $green;
+      border-radius: 2rem;
       color: $white;
       padding: 0.65rem 0.65rem;
       min-width: 5rem;
@@ -242,11 +243,16 @@ img.shop-first-image{
 
 //カフェ詳細
 .shop-data {
-  &__upper__name {
+  &__upper {
     font-size: 1.5rem;
-  }
-  &__upper__registered-person {
-    font-size: 1rem;
+    &__average {
+      &-rate {
+        color: $score;
+      }
+    }
+    &__registered-person {
+      font-size: 1rem;
+    }
   }
   &__table {
     min-width: 500px;
