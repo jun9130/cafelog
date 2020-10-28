@@ -12,4 +12,23 @@
           = image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block"
         .top-contents__shop-name.font-weight-bold
           = shop.name
+        .top-contents__shop-average.d-flex
+          - if shop.reviews.present?
+            .top-contents__shop-average-star
+              - @star_on = shop.reviews.average(:rate).to_i
+              - @star_off = 5 - @star_on
+              - @star_on.times do
+                = image_tag "star-on.png"
+              - @star_off.times do
+                = image_tag "star-off.png"
+            .top-contents__shop-average-rate.font-weight-bold.pl-2
+              = shop.reviews.average(:rate).to_f.round(2)
+          - else
+            .top-contents__shop-average-star
+              - 5.times do
+                = image_tag "star-off.png"
+            .top-contents__shop-average-rate.font-weight-bold.pl-2
+              = "--"
+          
+
       
