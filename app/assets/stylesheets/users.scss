@@ -76,7 +76,12 @@ img.avatar {
  //ユーザーのレビュー
  .user-shop-review__wrapper {
    border-bottom: 2px solid #dfdfdf;
+   &__content__shop-average {
+    color: $score;
+    font-size: 1.2rem;
+  }
  }
+ 
  .shop-name {
    color: $black;
    &:hover {

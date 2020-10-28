@@ -12,12 +12,16 @@
         .user-shop-review__wrapper__content__shop-name.font-weight-bold
           = link_to shop_path(review.shop.id) , class: "link shop-name" do
             = review.shop.name
-        .user-shop-review__wrapper__content__shop-star
-          - @star_on = review.rate
-          - @star_off = 5 - @star_on
-          - @star_on.times do
-            = image_tag "star-on.png"
-          - @star_off.times do
-            = image_tag "star-off.png"
+        .user-shop-review__wrapper__content__shop-average.d-flex
+          - if review.rate.present?
+            .user-shop-review__wrapper__content__shop-average-star
+              - @star_on = review.rate
+              - @star_off = 5 - @star_on
+              - @star_on.times do
+                = image_tag "star-on.png"
+              - @star_off.times do
+                = image_tag "star-off.png"
+            .user-shop-review__wrapper__content__shop-average-star.pl-2
+              = review.rate.to_f.round(2)
         .user-shop-review__wrapper__content__shop-text.mt-3
           = review.text
