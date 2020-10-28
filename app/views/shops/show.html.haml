@@ -5,15 +5,22 @@
         - if user_signed_in? && @shop.user_id == current_user.id
         = link_to "編集", edit_shop_path, class: "shop-edit-button float-right mr-5"
     .shop-data__upper__average.d-flex
-      .shop-data__upper__average-star
-        - @star_on = @average_rate.to_i
-        - @star_off = 5 - @star_on
-        - @star_on.times do
-          = image_tag "star-on.png"
-        - @star_off.times do
-          = image_tag "star-off.png"
-      .shop-data__upper__average-rate.font-weight-bold.pl-3
-        = @average_rate.to_f.round(2)
+      - if @shop.reviews.present?
+        .shop-data__upper__average-star
+          - @star_on = @average_rate.to_i
+          - @star_off = 5 - @star_on
+          - @star_on.times do
+            = image_tag "star-on.png"
+          - @star_off.times do
+            = image_tag "star-off.png"
+        .shop-data__upper__average-rate.font-weight-bold.pl-3
+          = @average_rate.to_f.round(2)
+      - else
+        .shop-data__upper__average-star
+          - 5.times do
+            = image_tag "star-off.png"
+        .shop-data__upper__average-rate.font-weight-bold.pl-3
+          = "--"
     .shop-data__upper__registered-person
       登録者:
       = link_to @shop.user.name, user_path(@shop.user.id),class: "text-dark"
