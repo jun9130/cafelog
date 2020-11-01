@@ -32,6 +32,43 @@ img.avatar {
   color: $black;
 }
 
+.user-top-contents {
+  flex-wrap: wrap;
+  color: $black;
+  &__shop {
+    &-image {
+      position: relative;
+      width: 100%;
+    }
+    &-access {
+      color: $black;
+      position: absolute;
+      left: 1rem;
+      top: 3rem;
+      background-color: $green;
+      border-radius: 2rem;
+      color: $white;
+      padding: 0.65rem 0.65rem;
+      min-width: 5rem;
+      text-align: center;
+    }
+    &-name {
+      color: $black;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin: 0 0.5rem;
+    }
+    &-average {
+      color: $score;
+      font-size: 1.2rem;
+      margin: 0 0.5rem;
+    }
+  }
+
+}
+
+
 @include xl {
   .upper-mypage {
     &__left__avatar {
@@ -42,6 +79,9 @@ img.avatar {
       border-radius: 50%;
       object-fit: cover;
     }
+  }
+  .user-top-contents-name {
+    margin: 0;
   }
 }
 
@@ -71,6 +111,26 @@ img.avatar {
     }
   }
  }
+ @include md {
+  .user-top-contents__shop-access {
+    left: 10%;
+   }
+  .user-top-contents__shop-name {
+    margin: 0 3.5rem;
+  }
+  .user-top-contents__shop-average {
+    margin: 0 3.5rem;
+  }
+}
+
+@include sm {
+  .user-top-contents__shop-name {
+    margin: 0 2.3rem;
+  }
+  .user-top-contents__shop-average {
+    margin: 0 2.3rem;
+  }
+}
 
 
  //ユーザーのレビュー

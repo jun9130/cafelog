@@ -66,10 +66,12 @@ ul.tag-list {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      margin: 0 0.5rem;
     }
     &-average {
       color: $score;
       font-size: 1.2rem;
+      margin: 0 0.5rem;
     }
   }
 }

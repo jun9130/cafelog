@@ -1,31 +1,31 @@
 .top-contents.row
   - @likes.each do |like|
-    .top-contents__shop.py-5.font-weight-bold
+    .user-top-contents__shop.font-weight-bold.col-12.col-md-6.col-lg-4.py-5
       = link_to shop_path(like.shop.id) , class: "link" do
-        .top-contents__shop-access.font-weight-bold
+        .user-top-contents__shop-access.font-weight-bold
           = like.shop.access.delete('駅')
-        .top-contents__shop-image
+        .user-top-contents__shop-image
         - image = like.shop.shop_images[0]
         - if like.shop.shop_images.present?
           = image_tag "#{image.image}", class: "shop-first-image mx-auto d-block"
         - else
           = image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block"
-      .top-contents__shop-name.font-weight-bold
+      .user-top-contents__shop-name.font-weight-bold
         = like.shop.name
-      .top-contents__shop-average.d-flex
+      .user-top-contents__shop-average.d-flex
         - if like.shop.reviews.present?
-          .top-contents__shop-average-star
+          .user-top-contents__shop-average-star
             - @star_on = like.shop.reviews.average(:rate).to_i
             - @star_off = 5 - @star_on
             - @star_on.times do
               = image_tag "star-on.png"
             - @star_off.times do
               = image_tag "star-off.png"
-          .top-contents__shop-average-rate.font-weight-bold.pl-2
+          .user-top-contents__shop-average-rate.font-weight-bold.pl-2
             = like.shop.reviews.average(:rate).to_f.round(2)
         - else
-          .top-contents__shop-average-star
+          .user-top-contents__shop-average-star
             - 5.times do
               = image_tag "star-off.png"
-          .top-contents__shop-average-rate.font-weight-bold.pl-2
+          .user-top-contents__shop-average-rate.font-weight-bold.pl-2
             = "--"
