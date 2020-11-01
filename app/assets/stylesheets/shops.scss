@@ -42,16 +42,18 @@ ul.tag-list {
 }
 
 .top-contents {
-  justify-content: space-around; 
   flex-wrap: wrap;
   color: $black;
   &__shop {
-    position: relative;
+    &-image {
+      position: relative;
+      width: 100%;
+    }
     &-access {
       color: $black;
       position: absolute;
-      left: 0;
-      top: 48px;
+      left: 1rem;
+      top: 3rem;
       background-color: $green;
       border-radius: 2rem;
       color: $white;
@@ -76,6 +78,42 @@ img.shop-first-image{
   width: 300px;
   height: 300px;
 }
+
+@include xl {
+  img.shop-first-image{
+    width: 258px;
+    height: 258px;
+  }
+}
+
+@include lg {
+  img.shop-first-image{
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@include md {
+  .top-contents__shop-access {
+    left: 10%;
+  }
+  .top-contents__shop-name {
+    margin: 0 3.5rem;
+  }
+  .top-contents__shop-average {
+    margin: 0 3.5rem;
+  }
+}
+
+@include sm {
+  .top-contents__shop-name {
+    margin: 0 2.3rem;
+  }
+  .top-contents__shop-average {
+    margin: 0 2.3rem;
+  }
+}
+
 
 //検索窓
 .search-form__input {
