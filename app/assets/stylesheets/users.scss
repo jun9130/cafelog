@@ -65,7 +65,11 @@ img.avatar {
       margin: 0 0.5rem;
     }
   }
+}
 
+.user-shop-first-image {
+  height: 300px;
+  width: 300px;
 }
 
 
@@ -120,6 +124,11 @@ img.avatar {
   }
   .user-top-contents__shop-average {
     margin: 0 3.5rem;
+  }
+
+  .user-shop-first-image {
+    height: 200px;
+    width: 200px;
   }
 }
 
