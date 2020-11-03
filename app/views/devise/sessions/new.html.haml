@@ -21,30 +21,3 @@
         = f.submit "かんたんログイン", class: 'devise-button'
     .devise__form-group.mx-auto.py-5
       = render "devise/shared/links"
-
-
--# .devise-wrapper
--#   .devise__contents
--#     %h2 ログイン
--#     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
--#       .devise__form-group
--#         = f.label :email, "メールアドレス"
--#         = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'devise__form-input'
--#       .devise__form-group
--#         = f.label :password, "パスワード"
--#         = f.password_field :password, autocomplete: 'current-password', class: 'devise__form-input' 
--#       - if devise_mapping.rememberable?
--#         .form-group.form-check
--#           = f.check_box :remember_me, class: 'form-check-input'
--#           = f.label :remember_me, class: 'form-check-label' do
--#             = resource.class.human_attribute_name('remember_me')
--#         .devise__form-group
--#           = f.submit  ('ログイン'), class: 'devise-button'
--#       .devise__form-group
--#         = form_for(User.new, as: :user, url: session_path(:user)) do |f|
--#           = f.hidden_field :email, value: "test@gmail.com"
--#           = f.hidden_field :password, value: "test123456"
--#           = f.submit "かんたんログインはこちら", class: "test-login-button"
-      
--#     = render "devise/shared/links"
-    
