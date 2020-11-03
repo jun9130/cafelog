@@ -15,5 +15,11 @@
             = resource.class.human_attribute_name('remember_me')
         .devise__form-group
           = f.submit  ('ログイン'), class: 'devise-button'
+      .devise__form-group
+        = form_for(User.new, as: :user, url: session_path(:user)) do |f|
+          = f.hidden_field :email, value: "test@gmail.com"
+          = f.hidden_field :password, value: "test123456"
+          = f.submit "かんたんログインはこちら", class: "test-login-button"
+      
     = render "devise/shared/links"
     
