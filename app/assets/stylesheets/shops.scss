@@ -139,37 +139,45 @@ img.shop-first-image{
 }
 
 .shop-form__form-group {
-  margin-bottom: 10px;
+  margin-bottom: 0.6rem;
 }
 
 .shop__form-label {
-  padding: 10px 0;
+  padding: 0.6rem 0;
   letter-spacing: 0.05rem;
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: bold;
-  border-radius: 30px;
-  
+  border-radius: 1.8rem;
+}
+
+.required {
+  padding: 0.1em 0.5em;
+  margin-left: 10px;
+  font-size: 14px;
+  color: $white;
+  background: $red;
+  border-radius: 4px;
 }
 
 .shop__form-input{
   width: 100%;
-  padding: 10px;
+  padding: 0.6rem;
   border: 1px solid #ced4da;
-  border-radius: 30px;
+  border-radius: 1.8rem;
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
 }
 
-.shop__form-input:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
+//不要
 .shop-images__form {
-  border: none;
+  border: none; 
 }
 
 .shop-button {
   display: inline-block;
-  width: 300px;
+  width: 100%;
   padding: 7px 20px;
   background: $green;
   color: $white;
