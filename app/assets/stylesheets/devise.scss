@@ -30,7 +30,7 @@
   border: none;
 }
 
-.devise-button {
+.devise-button, .devise-edit-button {
   display: inline-block;
   width: 100%;
   font-size: 1rem;
@@ -42,20 +42,6 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
   }
-}
-
-.devise-edit-button {
-  display: inline-block;
-  width: 150px;
-  padding: 7px 20px;
-  background: $green;
-  color: $white;
-  border-radius: 30px;
-}
-
-.devise-edit-button:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
 }
 
 .test-login-button {

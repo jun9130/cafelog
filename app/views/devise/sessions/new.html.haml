@@ -14,10 +14,5 @@
           = resource.class.human_attribute_name('remember_me')
       .devise__form-group.mx-auto.col-4.mt-5
         = f.submit  ('ログイン'), class: 'devise-button'
-    .devise__form-group.mx-auto.col-4.mt-3
-      = form_for(User.new, as: :user, url: session_path(:user)) do |f|
-        = f.hidden_field :email, value: "test@gmail.com"
-        = f.hidden_field :password, value: "test123456"
-        = f.submit "かんたんログイン", class: 'devise-button'
     .devise__form-group.mx-auto.py-5
       = render "devise/shared/links"
