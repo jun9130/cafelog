@@ -86,12 +86,32 @@ img.shop-first-image{
     width: 258px;
     height: 258px;
   }
+
+  img.mainImage {
+    width: 400px;
+    height: 330px;
+  }
+
+  img.otherImage {
+    width: 165px;
+    height: 165px;
+  }
 }
 
 @include lg {
   img.shop-first-image{
     width: 300px;
     height: 300px;
+  }
+
+  img.mainImage {
+    width: 500px;
+    height: 330px;
+  }
+
+  img.otherImage {
+    width: 100px;
+    height: 100px;
   }
 }
 
@@ -104,6 +124,16 @@ img.shop-first-image{
   }
   .top-contents__shop-average {
     margin: 0 3.5rem;
+  }
+
+  img.mainImage {
+    width: 440px;
+    height: 300px;
+  }
+
+  img.otherImage {
+    width: 75px;
+    height: 75px;
   }
 }
 
@@ -170,11 +200,6 @@ img.shop-first-image{
   }
 }
 
-//不要
-.shop-images__form {
-  border: none; 
-}
-
 .shop-button {
   display: inline-block;
   width: 100%;
@@ -192,7 +217,6 @@ img.shop-first-image{
   color: $white;
   border-radius: 30px;
 }
-
 
 .shop-button:focus {
   outline: 0;
@@ -306,8 +330,13 @@ img.shop-first-image{
       font-size: 1rem;
     }
   }
-  &__table {
-    min-width: 500px;
+
+  .table {
+    max-width: 500px;
+    width: 100%;
+    th {
+      white-space: nowrap //項目改行しない
+    }
   }
 }
 

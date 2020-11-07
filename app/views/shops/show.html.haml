@@ -1,5 +1,5 @@
-.shop-data.container.my-5
-  .shop-data__upper.pt-5.pb-3.pl-5
+.shop-data.container.my-5.p-5
+  .shop-data__upper.pb-3
     .shop-data__upper__name.font-weight-bold
       = @shop.name
         - if user_signed_in? && @shop.user_id == current_user.id
@@ -24,66 +24,66 @@
     .shop-data__upper__registered-person
       登録者:
       = link_to @shop.user.name, user_path(@shop.user.id),class: "text-dark"
-  .shop-data-content.d-flex.flex-lg-row.flex-column.mb-5.pl-5
-    .shop-photo
+  .shop-data__content.d-lg-flex
+    .shop-data-image
       - if @image 
         = image_tag @image.image_url, size: "500x330", alt: "メイン画像", class: "mainImage"
       - else
         = image_tag "no-image-show.png", size: "500x330", alt: "メイン画像", class: "mainImage"
-    .shop-data__table
-      %table.table.ml-3
-        %tr
-          %th 
-            最寄駅
-            %td
-              = @shop.access
-        %tr
-          %th 
-            住所
-            %td
-              = @shop.address
-        %tr
-          %th 
-            営業時間
-            %td
-              = @shop.business_hours
-        %tr
-          %th 
-            定休日
-            %td
-              = @shop.holiday
-        %tr
-          %th 
-            席数
-            %td
-              = "#{@shop.seat}席"
-        %tr
-          %th 
-            タグ
-            %td
-              - @shop.tags.each do |tag|
-                .tag-name
-                  = link_to tag.name, tag_shops_path(tag_id: tag.id),class: "tag-name-button"
-        %tr
-          %th 
-            お気に入り
-            %td
-              - if user_signed_in?
-                = render partial: 'like'
-              - else
-                %i.fas.fa-heart.like-button
-                = "#{@shop.likes.count}"             
-  .shop-other-photos.pl-5
-    .shop-other-photos__header
-      .shop-post-photos__header__title.font-weight-bold.mb-3
+    %table.table.ml-lg-3
+      %tr
+        %th
+          最寄駅
+          %td
+            = @shop.access
+      %tr
+        %th
+          住所
+          %td
+            = @shop.address
+      %tr
+        %th
+          営業時間
+          %td
+            = @shop.business_hours
+      %tr
+        %th
+          定休日
+          %td
+            = @shop.holiday
+      %tr
+        %th 
+          席数
+          %td
+            = "#{@shop.seat}席"
+      %tr
+        %th
+          タグ
+          %td
+            - @shop.tags.each do |tag|
+              .tag-name
+                = link_to tag.name, tag_shops_path(tag_id: tag.id),class: "tag-name-button"
+      %tr
+        %th
+          お気に入り
+          %td
+            - if user_signed_in?
+              = render partial: 'like'
+            - else
+              %i.fas.fa-heart.like-button
+              = "#{@shop.likes.count}"     
+
+  .shop-data-other-images
+    .shop-data-other-images__header
+      .shop-data-other-images__header__title.font-weight-bold.mb-3
         写真
-    .shop-post-photos__content
+    .shop-data-other-images__content
       - @images.each do |image|
         = link_to image.image.url, 'data-lightbox': image.image do
-          = image_tag "#{image.image_url}", size: "200x150" if image.image?
-        
-  .shop-review.my-5.pl-5
-    .shop-review__title.font-weight-bold.mb-3
+          = image_tag "#{image.image_url}", size: "200x165", class:"otherImage" if image.image?        
+
+  .shop-review.my-5
+    .shop-review__title.font-weight-bold.pb-3
       レビュー一覧
       = link_to "レビューを書く", "/shops/#{@shop.id}/reviews/new", class: "shop-review-button float-right"
     .shop-review__wrapper.pb-5
