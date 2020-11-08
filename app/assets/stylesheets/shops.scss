@@ -83,6 +83,9 @@ ul.tag-list, ul.access-list{
       color: $score;
       font-size: 1.2rem;
       margin: 0 0.5rem;
+      &__shop-icon-review {
+        color: #FFAA00;
+      }
     }
   }
 }
