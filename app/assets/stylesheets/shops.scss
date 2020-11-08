@@ -27,7 +27,7 @@
   text-shadow: black 1px 1px 0px, black -1px 1px 0px, black 1px -1px 0px, black -1px -1px 0px;
 }
 
-ul.tag-list {
+ul.tag-list, ul.access-list{
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -36,6 +36,17 @@ ul.tag-list {
 .tag-item {
   background-color: $green;
   border-radius: 2rem;
+  &-link {
+    font-size: 1rem;
+  }
+}
+
+.access-item {
+  background-color: $green;
+  border-radius: 2rem;
+  padding: 0.65rem 0.65rem;
+  min-width: 5rem;
+  text-align: center;
   &-link {
     font-size: 1rem;
   }
