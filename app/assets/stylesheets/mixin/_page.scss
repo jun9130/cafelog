@@ -2,8 +2,3 @@
 @mixin md { @media (max-width: 768px) { @content; } }
 @mixin lg { @media (max-width: 992px) { @content; } }
 @mixin xl { @media (max-width: 1200px) { @content; } }
-
-
-@mixin  main-padding {
-  padding: 50px 30px;
-}
