@@ -23,12 +23,23 @@
                 = image_tag "star-off.png"
             .top-contents__shop-average-rate.font-weight-bold.pl-2
               = shop.reviews.average(:rate).to_f.round(2)
+            .top-contents__shop-icon.d-flex.pl-3
+              .top-contents__shop-icon-like
+                %i.fas.fa-heart.fa-xs
+                  = "#{shop.likes.count}"
+              .top-contents__shop-icon-review.pl-2
+                %i.fas.fa-comment-dots.fa-xs
+                  = "#{shop.reviews.count}"
           - else
             .top-contents__shop-average-star
               - 5.times do
                 = image_tag "star-off.png"
             .top-contents__shop-average-rate.font-weight-bold.pl-2
               = "--"
-          
-
-      
+            .top-contents__shop-icon.d-flex.pl-3
+              .top-contents__shop-icon-like
+                %i.fas.fa-heart.fa-xs
+                  = "#{shop.likes.count}"
+              .top-contents__shop-icon-review.pl-2
+                %i.fas.fa-comment-dots.fa-xs
+                  = "#{shop.reviews.count}"

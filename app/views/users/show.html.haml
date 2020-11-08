@@ -32,12 +32,12 @@
             登録したカフェはありません。
         #pills-user-favorite.tab-pane.fade{"aria-labelledby" => "pills-user-favorite-tab", :role => "tabpanel"} 
           - if @likes.present?
-            = render partial: 'modules/user_like'
+            = render partial: 'user_like'
           - else
             お気に入りはありません。
         #pills-review.tab-pane.fade{"aria-labelledby" => "pills-review-tab", :role => "tabpanel"} 
           - if @reviews.present?
-            = render partial: 'modules/user_review'
+            = render partial: 'user_review'
           - else
             レビューはありません。
 
