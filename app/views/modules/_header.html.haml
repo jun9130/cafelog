@@ -10,8 +10,6 @@
     -if user_signed_in?    
       %ul.navbar-nav
         %li.nav-item
-          = link_to "カフェ一覧", root_path, class: 'nav-link text-white'
-        %li.nav-item
           = link_to "新しいカフェの登録", new_shop_path, class: 'nav-link text-white'
         %li.nav-item
           = link_to current_user.name, user_path(current_user), class: 'nav-link text-white'
@@ -28,8 +26,6 @@
             = f.hidden_field :email, value: "test@gmail.com"
             = f.hidden_field :password, value: "test123456"
             = f.submit "かんたんログイン", class: "test-login-button"
-        %li.nav-item
-          = link_to "カフェ一覧", root_path, class: 'nav-link text-white'
         %li.nav-item
           = link_to "新規会員登録", new_user_registration_path, class: 'nav-link text-white'
         %li.nav-item
