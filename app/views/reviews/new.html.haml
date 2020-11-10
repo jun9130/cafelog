@@ -1,5 +1,5 @@
-.container.my-5
-  %h3.review-content.text-center.py-5 #{@shop.name}のレビュー
+.review-content.container.my-5
+  %h3.review__header.text-center.font-weight-bold.py-5 #{@shop.name}のレビュー
   .review-form
     = form_for [@shop, @review] do |f|
       .review-form__form-group.mx-auto
