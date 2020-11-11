@@ -221,20 +221,10 @@ img.shop-first-image{
   background: $green;
   color: $white;
   border-radius: 30px;
-}
-
-.shop-button-back {
-  display: inline-block;
-  width: 150px;
-  padding: 7px 20px;
-  background: $green;
-  color: $white;
-  border-radius: 30px;
-}
-
-.shop-button:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
 }
 
 .review-form {
