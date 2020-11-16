@@ -52,7 +52,7 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :access, :address, :business_hours, :holiday, :seat, tag_ids: [], shop_images_attributes: [:image, :id]).merge(user_id: current_user.id)
+    params.require(:shop).permit(:name, :access, :address, :business_hours, :holiday, :seat, tag_ids: [name: [] ], shop_images_attributes: [:image, :id]).merge(user_id: current_user.id)
   end
 
   def shop_update_params

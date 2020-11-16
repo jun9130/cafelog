@@ -26,7 +26,7 @@
       = link_to @shop.user.name, user_path(@shop.user.id),class: "text-dark"
   .shop-data__content.d-lg-flex
     .shop-data-image
-      - if @image 
+      - if @image
         = image_tag @image.image_url, size: "500x330", alt: "メイン画像", class: "mainImage"
       - else
         = image_tag "no-image-show.png", size: "500x330", alt: "メイン画像", class: "mainImage"
