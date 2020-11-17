@@ -42,7 +42,7 @@ class ShopsController < ApplicationController
 
   def search
     @tag = Tag.find(params[:tag_id]) 
-    @shops = @tag.shops.all
+    @shops = @tag.shops.all.order('updated_at DESC')
   end
 
   private
