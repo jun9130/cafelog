@@ -18,5 +18,13 @@ describe ShopsController do
       expect(response).to render_template :index
     end
   end
+  
+  describe 'GET #edit' do
+    it "@shop に正しい値が入っているか" do 
+      shop = create(:shop)
+      get :edit, params: { id: shop }
+      expect(assigns(:shop)).to eq shop
+    end
+  end
 end
 
