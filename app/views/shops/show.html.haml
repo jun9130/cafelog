@@ -15,12 +15,27 @@
             = image_tag "star-off.png"
         .shop-data__upper__average-rate.font-weight-bold.pl-3
           = @average_rate.to_f.round(2)
+        .shop-data__upper__shop-icon.d-flex.pl-3
+          .shop-data__upper__shop-icon-like
+            %i.fas.fa-heart.fa-xs
+              = "#{@shop.likes.count}"
+          .shop-data__upper__shop-icon-review.pl-2
+            %i.fas.fa-comment-dots.fa-xs
+              = "#{@shop.reviews.count}"
       - else
         .shop-data__upper__average-star
           - 5.times do
             = image_tag "star-off.png"
         .shop-data__upper__average-rate.font-weight-bold.pl-3
           = "--"
+        .shop-data__upper__shop-icon.d-flex.pl-3
+          .shop-data__upper__shop-icon-like
+            %i.fas.fa-heart.fa-xs
+              = "#{@shop.likes.count}"
+          .shop-data__upper__shop-icon-review.pl-2
+            %i.fas.fa-comment-dots.fa-xs
+              = "#{@shop.reviews.count}"
+        
     .shop-data__upper__registered-person
       登録者:
       = link_to @shop.user.name, user_path(@shop.user.id),class: "text-dark"
