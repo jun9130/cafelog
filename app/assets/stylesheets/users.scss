@@ -24,13 +24,47 @@ img.avatar {
   height: auto;
 }
 
-.mypage-tab {
-  color: $black;
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  li {
+    width: 32%; 
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+    a:hover:not(.active) {
+      @include link
+    }
+    a.active {
+      background-color: $green;
+    }
+    a:not(.active) {
+      color: $black;
+    }
+  }
 }
 
+.mypage-contents {
+  li.active {
+    display: block;
+  }
+  li {
+  // padding: 20px;
+  display: none;
+  }
+}
+
+
+//お気に入り
 .user-top-contents {
   flex-wrap: wrap;
   color: $black;
+
   &__shop {
     &-image {
       position: relative;
@@ -151,6 +185,6 @@ img.avatar {
    color: $black;
    &:hover {
     color: $black;
-    opacity: 0.9;
+    @include link
   }
  }

@@ -15,31 +15,31 @@
               = link_to "編集", edit_user_path(current_user), class: "btn btn-success rounded-pill"
           .upper-mypage__right__profile
             = @user.profile_description
-    .lower-mypage
+    .lower-mypage.mt-5
       .row
-      %ul#pills-tab.nav.nav-pills.mb-3.justify-content-center{:role => "tablist"}
-        %li.nav-item.lower-mypage-tab
-          %a#pills-registered-cafe-tab.nav-link.mypage-tab.active{"aria-controls" => "pills-registered-cafe", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-registered-cafe", :role => "tab"} 登録したカフェ
-        %li.nav-item.lower-mypage-tab
-          %a#pills-user-favorite-tab.nav-link.mypage-tab{"aria-controls" => "pills-user-favorite", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-user-favorite", :role => "tab"} お気に入り
-        %li.nav-item.lower-mypage-tab
-          %a#pills-review-tab.nav-link.mypage-tab{"aria-controls" => "pills-review", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-review", :role => "tab"} レビュー
-      #pills-tabContent.tab-content
-        #pills-registered-cafe.tab-pane.fade.show.active{"aria-labelledby" => "pills-registered-cafe-tab", :role => "tabpanel"}
-          - if @shops.present?
-            = render partial: 'modules/shops'
-          - else
-            登録したカフェはありません。
-        #pills-user-favorite.tab-pane.fade{"aria-labelledby" => "pills-user-favorite-tab", :role => "tabpanel"} 
-          - if @likes.present?
-            = render partial: 'user_like'
-          - else
-            お気に入りはありません。
-        #pills-review.tab-pane.fade{"aria-labelledby" => "pills-review-tab", :role => "tabpanel"} 
-          - if @reviews.present?
-            = render partial: 'user_review'
-          - else
-            レビューはありません。
-
+        .lower-mypage-tab
+          .tabs
+            %li
+              %a.active{:href => ""} 登録したカフェ
+            %li
+              %a{:href => ""} お気に入り
+            %li
+              %a{:href => ""} レビュー
+          .mypage-contents
+            %li.active
+              - if @shops.present?
+                = render partial: 'modules/shops'
+              - else
+                登録したカフェはありません
+            %li
+              - if @likes.present?
+                = render partial: 'user_like'
+              - else
+                お気に入りはありません。
+            %li
+              - if @reviews.present?
+                = render partial: 'user_review'
+              - else
+                レビューはありません。
 
 
