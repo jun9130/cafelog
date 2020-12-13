@@ -16,30 +16,29 @@
           .upper-mypage__right__profile
             = @user.profile_description
     .lower-mypage.mt-5
-      .row
-        .lower-mypage-tab
-          .tabs
-            %li
-              %a.active{:href => ""} 登録したカフェ
-            %li
-              %a{:href => ""} お気に入り
-            %li
-              %a{:href => ""} レビュー
-          .mypage-contents
-            %li.active
-              - if @shops.present?
-                = render partial: 'modules/shops'
-              - else
-                登録したカフェはありません
-            %li
-              - if @likes.present?
-                = render partial: 'user_like'
-              - else
-                お気に入りはありません。
-            %li
-              - if @reviews.present?
-                = render partial: 'user_review'
-              - else
-                レビューはありません。
+      .lower-mypage-tab
+        .tabs
+          %li
+            %a.active{:href => ""} 登録したカフェ
+          %li
+            %a{:href => ""} お気に入り
+          %li
+            %a{:href => ""} レビュー
+        .mypage-contents
+          %li.active
+            - if @shops.present?
+              = render partial: 'modules/shops'
+            - else
+              登録したカフェはありません
+          %li
+            - if @likes.present?
+              = render partial: 'user_like'
+            - else
+              お気に入りはありません。
+          %li
+            - if @reviews.present?
+              = render partial: 'user_review'
+            - else
+              レビューはありません。
 
 
