@@ -27,7 +27,6 @@
 }
 
 ul.tag-list, ul.access-list{
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
   .tag-item {
@@ -35,6 +34,9 @@ ul.tag-list, ul.access-list{
     border-radius: 2rem;
     &-link {
       font-size: 1rem;
+    }
+    :hover {
+      @include link
     }
   }
   .access-item {
@@ -45,6 +47,9 @@ ul.tag-list, ul.access-list{
     text-align: center;
     &-link {
       font-size: 1rem;
+    }
+    :hover {
+      @include link
     }
   }
 }
@@ -88,17 +93,19 @@ ul.tag-list, ul.access-list{
       }
     }
   }
-  img.shop-first-image{
+  img.shop-first-image {
     width: 300px;
     height: 300px;
   }
 }
 
 @include xl {
-  img.shop-first-image{
+  .top-contents {
+  img.shop-first-image {
     width: 258px;
     height: 258px;
   }
+}
 
   img.mainImage {
     width: 400px;
@@ -112,10 +119,12 @@ ul.tag-list, ul.access-list{
 }
 
 @include lg {
+  .top-contents {
   img.shop-first-image{
     width: 300px;
     height: 300px;
   }
+}
 
   img.mainImage {
     width: 500px;
@@ -383,7 +392,7 @@ ul.tag-list, ul.access-list{
   color: rgb(224, 36, 94);
   &:hover {
     color: rgb(224, 36, 94);
-    opacity: 0.8;
+    @include link
   }
 }
 
@@ -391,7 +400,7 @@ ul.tag-list, ul.access-list{
   color: rgb(101, 119, 134);
   &:hover {
     color: rgb(224, 36, 94);
-    opacity: 0.5;
+    @include link
   }
 }
 
