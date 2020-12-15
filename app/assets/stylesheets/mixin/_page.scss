@@ -3,7 +3,41 @@
 @mixin lg { @media (max-width: 992px) { @content; } }
 @mixin xl { @media (max-width: 1200px) { @content; } }
 
+@mixin shop-button {
+  display: inline-block;
+  width: 100%;
+  padding: 7px 20px;
+  background: $green;
+  color: $white;
+  border-radius: 30px;
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  &:hover {
+    @include button 
+  }
+}
+
+@mixin edit-button {
+  display: inline-block;
+  font-size: 1rem;
+  margin-left: 10px;
+  padding: 7px 20px;
+  border-radius: 30px;
+  background: $green;
+  color: $white;
+  &:hover {
+    @include button
+  }
+}
+
 @mixin link {
   opacity: 0.5; 
+  transition: 0.3s;
+}
+
+@mixin button {
+  opacity: 0.8; 
   transition: 0.3s;
 }
