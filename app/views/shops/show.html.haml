@@ -3,7 +3,7 @@
     .shop-data__upper__name.font-weight-bold
       = @shop.name
         - if user_signed_in? && @shop.user_id == current_user.id
-        = link_to "編集", edit_shop_path, class: "shop-edit-button float-right mr-5"
+        = link_to "編集", edit_shop_path, class: "shop-edit-button float-right"
     .shop-data__upper__average.d-flex
       - if @shop.reviews.present?
         .shop-data__upper__average-star

@@ -18,6 +18,10 @@
     }
 }
 
+.user-edit-button {
+  @include edit-button
+}
+
 img.avatar {
   display: block;
   width: 100%;

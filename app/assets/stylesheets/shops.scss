@@ -215,16 +215,7 @@ ul.tag-list, ul.access-list{
     }
   }
   .shop-button {
-    display: inline-block;
-    width: 100%;
-    padding: 7px 20px;
-    background: $green;
-    color: $white;
-    border-radius: 30px;
-    :focus {
-      outline: 0;
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    }
+    @include shop-button
   }  
 }
 
@@ -241,16 +232,7 @@ ul.tag-list, ul.access-list{
     border-radius: 30px;
   } 
   .shop-button {
-    display: inline-block;
-    width: 100%;
-    padding: 7px 20px;
-    background: $green;
-    color: $white;
-    border-radius: 30px;
-    :focus {
-      outline: 0;
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    }
+    @include shop-button
   }
 }
 
@@ -280,25 +262,25 @@ ul.tag-list, ul.access-list{
   }
 }
 
-.image-box{
+.image-box {
   display: none;
 }
 
-#image-label-0{
+#image-label-0 {
   display: block;
 }
 
-#preview{
+#preview {
   display: flex;
   margin-right: 10px;
 }
 
-.img_view{
+.img_view {
   width: 180px;
   margin: 10px 0 10px 10px;
   height: 180px;
   background-color: #f5f5f5;
-  img{
+  img {
     display: block;
     max-width: 180px;
     height: 150px;
@@ -306,9 +288,9 @@ ul.tag-list, ul.access-list{
   }
 }
 
-.image-upload-button{
+.image-upload-button {
   display: flex;
-  .btn{
+  .btn {
     width: 100%;
     background: #f5f5f5;
     line-height: 30px;
@@ -319,7 +301,7 @@ ul.tag-list, ul.access-list{
   }
 }
 
-.image-upload{
+.image-upload {
   display: flex;
   text-align: center;
   height: 180px;
@@ -327,7 +309,7 @@ ul.tag-list, ul.access-list{
 }
 
 // 画像プレビュー
-.hidden-content{
+.hidden-content {
   display: none;
 }
 
@@ -365,13 +347,7 @@ ul.tag-list, ul.access-list{
 }
 
 .shop-edit-button {
-  display: inline-block;
-  font-size: 1rem;
-  margin-left: 10px;
-  padding: 7px 20px;
-  border-radius: 30px;
-  background: $green;
-  color: $white;
+  @include edit-button
 }
 
 //タグ
@@ -381,7 +357,11 @@ ul.tag-list, ul.access-list{
   background: $green;
   color: $white;
   padding: 1px 9px;
+  margin-bottom: 5px;
   font-size: 0.9rem;
+  :hover {
+    @include link
+  }
   &-button {
     color: $white;
   }
@@ -438,6 +418,9 @@ ul.tag-list, ul.access-list{
   border-radius: 30px;
   background: $green;
   color: $white;
+  &:hover {
+    @include button
+  }
 }
 
 .review-delete-btn {
