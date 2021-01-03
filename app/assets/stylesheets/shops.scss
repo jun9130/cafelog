@@ -7,11 +7,11 @@
   height: 500px;
   width: 100%;
   opacity: 0.9;
+
   .catchCopy {
     position: absolute;
     top: 50%;
     left: 50%;
-    
     // 折り返さない
     white-space: nowrap;
     -ms-transform: translate(-50%,-50%);
@@ -23,10 +23,15 @@
     font-size: 2.5rem;
     font-weight: bold;
     text-shadow: black 1px 1px 0px, black -1px 1px 0px, black 1px -1px 0px, black -1px -1px 0px;
+    
+    // 改行しない
+    .sp {
+      display: none;
+    }
   }
 }
 
-ul.tag-list, ul.access-list{
+ul.tag-list, ul.access-list {
   display: flex;
   flex-wrap: wrap;
   .tag-item {
@@ -39,6 +44,7 @@ ul.tag-list, ul.access-list{
       @include link
     }
   }
+
   .access-item {
     background-color: $green;
     border-radius: 2rem;
@@ -59,14 +65,15 @@ ul.tag-list, ul.access-list{
   color: $black;
   &__shop {
     &-image {
+      width: 300px;
+      height: 300px;
       position: relative;
-      width: 100%;
     }
     &-access {
       color: $black;
       position: absolute;
-      left: 1rem;
-      top: 3rem;
+      left: 0;
+      top: 0;
       background-color: $green;
       border-radius: 2rem;
       color: $white;
@@ -79,12 +86,12 @@ ul.tag-list, ul.access-list{
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      margin: 0 0.5rem;
+      width: 100%;
     }
     &-average {
       color: $score;
       font-size: 1.2rem;
-      margin: 0 0.5rem;
+      width: 100%;
       .top-contents__shop-icon-like {
         color: $like_icon;
       }
@@ -96,75 +103,6 @@ ul.tag-list, ul.access-list{
   img.shop-first-image {
     width: 300px;
     height: 300px;
-  }
-}
-
-@include xl {
-  .top-contents {
-  img.shop-first-image {
-    width: 258px;
-    height: 258px;
-  }
-}
-
-  img.mainImage {
-    width: 400px;
-    height: 330px;
-  }
-
-  img.otherImage {
-    width: 165px;
-    height: 165px;
-  }
-}
-
-@include lg {
-  .top-contents {
-  img.shop-first-image{
-    width: 300px;
-    height: 300px;
-  }
-}
-
-  img.mainImage {
-    width: 500px;
-    height: 330px;
-  }
-
-  img.otherImage {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-@include md {
-  .top-contents__shop-access {
-    left: 10%;
-  }
-  .top-contents__shop-name {
-    margin: 0 3.5rem;
-  }
-  .top-contents__shop-average {
-    margin: 0 3.5rem;
-  }
-
-  img.mainImage {
-    width: 440px;
-    height: 300px;
-  }
-
-  img.otherImage {
-    width: 75px;
-    height: 75px;
-  }
-}
-
-@include sm {
-  .top-contents__shop-name {
-    margin: 0 2.3rem;
-  }
-  .top-contents__shop-average {
-    margin: 0 2.3rem;
   }
 }
 
@@ -204,7 +142,7 @@ ul.tag-list, ul.access-list{
     background: $red;
     border-radius: 4px;
   }
-  .shop__form-input{
+  .shop__form-input {
     width: 100%;
     padding: 0.6rem;
     border: 1px solid #ced4da;
@@ -256,7 +194,7 @@ ul.tag-list, ul.access-list{
   cursor: pointer;
   margin-top: 10px ;
   display: none;
-  pre{
+  pre {
     padding: 0 auto;
     font-size: 15px;
   }
@@ -431,4 +369,75 @@ ul.tag-list, ul.access-list{
   border-radius: 30px;
   background: $green;
   color: $white;
+}
+
+@include sp {
+  @include catchCopy-Responsive;
+}
+
+@include sm {
+  @include catchCopy-Responsive;
+}
+
+@include md {
+  .top-image {
+    .catchCopy {
+      font-size: 2rem;
+    }
+  }
+
+  img.mainImage {
+    width: 440px;
+    height: 300px;
+  }
+  
+  img.otherImage {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@include lg {
+  .top-contents {
+    img.shop-first-image {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  img.mainImage {
+    width: 500px;
+    height: 330px;
+  }
+
+  img.otherImage {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@include xl {
+  .top-contents {
+    &__shop {
+      &-image {
+        width: 258px;
+        height: 258px;
+        position: relative;
+      }
+    }
+    img.shop-first-image {
+      width: 258px;
+      height: 258px;
+    }
+  }
+
+  img.mainImage {
+    width: 400px;
+    height: 330px;
+  }
+
+  img.otherImage {
+    width: 165px;
+    height: 165px;
+  }
 }
