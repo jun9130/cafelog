@@ -1,7 +1,41 @@
-@mixin sm { @media (max-width: 576px) { @content; } }
-@mixin md { @media (max-width: 768px) { @content; } }
-@mixin lg { @media (max-width: 992px) { @content; } }
-@mixin xl { @media (max-width: 1200px) { @content; } }
+@mixin sp { 
+  @media screen and (max-width: 375px) { 
+    @content; 
+  } 
+}
+
+@mixin sm { 
+  @media screen and (min-width: 376px) and (max-width: 576px) { 
+    @content; 
+  } 
+}
+@mixin md { 
+  @media screen and (min-width: 577px) and (max-width: 768px) { 
+    @content; 
+  } 
+}
+@mixin lg { 
+  @media screen and (min-width: 769px) and (max-width: 992px) { 
+    @content; 
+  } 
+}
+@mixin xl { 
+  @media screen and (min-width: 993px) and (max-width: 1200px) { 
+    @content; 
+  } 
+}
+
+@mixin catchCopy-Responsive {
+  .top-image {
+    .catchCopy {
+      font-size: 2rem;
+      // 改行
+      .sp { 
+        display: block;
+      }
+    }
+  }
+}
 
 @mixin shop-button {
   display: inline-block;
@@ -41,3 +75,5 @@
   opacity: 0.8; 
   transition: 0.3s;
 }
+
+

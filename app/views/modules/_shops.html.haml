@@ -2,44 +2,79 @@
   - @shops.each do |shop|
     .top-contents__shop.font-weight-bold.col-12.col-md-6.col-lg-4.py-5
       = link_to shop_path(shop) , class: "link" do
-        .top-contents__shop-access.font-weight-bold
-          = shop.access.delete('駅')
         .top-contents__shop-image
-        - image = shop.shop_images[0]
-        - if shop.shop_images.present?
-          = image_tag "#{image.image}", class: "shop-first-image mx-auto d-block"
-        - else
-          = image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block"
-        .top-contents__shop-name.font-weight-bold
-          = shop.name
-        .top-contents__shop-average.d-flex
-          - if shop.reviews.present?
-            .top-contents__shop-average-star
-              - @star_on = shop.reviews.average(:rate).to_i
-              - @star_off = 5 - @star_on
-              - @star_on.times do
-                = image_tag "star-on.png"
-              - @star_off.times do
-                = image_tag "star-off.png"
-            .top-contents__shop-average-rate.font-weight-bold.pl-2
-              = shop.reviews.average(:rate).to_f.round(2)
-            .top-contents__shop-icon.d-flex.pl-3
-              .top-contents__shop-icon-like
-                %i.fas.fa-heart.fa-xs
-                  = "#{shop.likes.count}"
-              .top-contents__shop-icon-review.pl-2
-                %i.fas.fa-comment-dots.fa-xs
-                  = "#{shop.reviews.count}"
+          - image = shop.shop_images[0]
+          - if shop.shop_images.present?
+            = image_tag "#{image.image}", class: "shop-first-image mx-auto d-block"
+            .top-contents__shop-access.font-weight-bold
+              = shop.access.delete('駅')            
+            .top-contents__shop-name.font-weight-bold
+              = shop.name
+            .top-contents__shop-average.d-flex
+              - if shop.reviews.present?
+                .top-contents__shop-average-star
+                  - @star_on = shop.reviews.average(:rate).to_i
+                  - @star_off = 5 - @star_on
+                  - @star_on.times do
+                    = image_tag "star-on.png"
+                  - @star_off.times do
+                    = image_tag "star-off.png"
+                .top-contents__shop-average-rate.font-weight-bold.pl-2
+                  = shop.reviews.average(:rate).to_f.round(2)
+                .top-contents__shop-icon.d-flex.pl-3
+                  .top-contents__shop-icon-like
+                    %i.fas.fa-heart.fa-xs
+                      = "#{shop.likes.count}"
+                  .top-contents__shop-icon-review.pl-2
+                    %i.fas.fa-comment-dots.fa-xs
+                      = "#{shop.reviews.count}"
+              - else
+                .top-contents__shop-average-star
+                  - 5.times do
+                    = image_tag "star-off.png"
+                .top-contents__shop-average-rate.font-weight-bold.pl-2
+                  = "--"
+                .top-contents__shop-icon.d-flex.pl-3
+                  .top-contents__shop-icon-like
+                    %i.fas.fa-heart.fa-xs
+                      = "#{shop.likes.count}"
+                  .top-contents__shop-icon-review.pl-2
+                    %i.fas.fa-comment-dots.fa-xs
+                      = "#{shop.reviews.count}"
           - else
-            .top-contents__shop-average-star
-              - 5.times do
-                = image_tag "star-off.png"
-            .top-contents__shop-average-rate.font-weight-bold.pl-2
-              = "--"
-            .top-contents__shop-icon.d-flex.pl-3
-              .top-contents__shop-icon-like
-                %i.fas.fa-heart.fa-xs
-                  = "#{shop.likes.count}"
-              .top-contents__shop-icon-review.pl-2
-                %i.fas.fa-comment-dots.fa-xs
-                  = "#{shop.reviews.count}"
+            = image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block"
+            .top-contents__shop-access.font-weight-bold
+              = shop.access.delete('駅')  
+            .top-contents__shop-name.font-weight-bold
+              = shop.name
+            .top-contents__shop-average.d-flex
+              - if shop.reviews.present?
+                .top-contents__shop-average-star
+                  - @star_on = shop.reviews.average(:rate).to_i
+                  - @star_off = 5 - @star_on
+                  - @star_on.times do
+                    = image_tag "star-on.png"
+                  - @star_off.times do
+                    = image_tag "star-off.png"
+                .top-contents__shop-average-rate.font-weight-bold.pl-2
+                  = shop.reviews.average(:rate).to_f.round(2)
+                .top-contents__shop-icon.d-flex.pl-3
+                  .top-contents__shop-icon-like
+                    %i.fas.fa-heart.fa-xs
+                      = "#{shop.likes.count}"
+                  .top-contents__shop-icon-review.pl-2
+                    %i.fas.fa-comment-dots.fa-xs
+                      = "#{shop.reviews.count}"
+              - else
+                .top-contents__shop-average-star
+                  - 5.times do
+                    = image_tag "star-off.png"
+                .top-contents__shop-average-rate.font-weight-bold.pl-2
+                  = "--"
+                .top-contents__shop-icon.d-flex.pl-3
+                  .top-contents__shop-icon-like
+                    %i.fas.fa-heart.fa-xs
+                      = "#{shop.likes.count}"
+                  .top-contents__shop-icon-review.pl-2
+                    %i.fas.fa-comment-dots.fa-xs
+                      = "#{shop.reviews.count}"
