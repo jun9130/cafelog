@@ -37,6 +37,20 @@
   }
 }
 
+@mixin top-group-Responsive {
+  .top-title {
+    text-align: center;
+  }
+  ul.access-list, ul.tag-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .top-contents__shop-image {
+    margin: 0 auto;
+  }
+}
+
 @mixin shop-button {
   display: inline-block;
   width: 100%;
