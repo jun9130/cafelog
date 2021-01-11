@@ -1,27 +1,52 @@
-.user-shop-review  
+.top-contents.row
   - @reviews.each do |review|
-    .user-shop-review__wrapper.py-5.row
-      .user-shop-review__wrapper__image.col-7.col-lg-5
-        = link_to shop_path(review.shop.id) , class: "link" do
+    .user-top-contents__shop.font-weight-bold.col-12.col-md-6.col-lg-4.py-5
+      = link_to shop_path(review.shop.id) , class: "link" do
+        .user-top-contents__shop-image
           - image = review.shop.shop_images[0]
           - if review.shop.shop_images.present?
-            = image_tag "#{image.image}", class: "user-shop-first-image mx-auto d-block"
+            = image_tag "#{image.image}", class: "shop-first-image mx-auto d-block"
+            .user-top-contents__shop-access.font-weight-bold
+              = review.shop.access.delete('駅')
+            .user-top-contents__shop-name.font-weight-bold
+              = review.shop.name
+            .user-top-contents__shop-average.d-flex
+              - if review.shop.reviews.present?
+                .user-top-contents__shop-average-star
+                  - @star_on = review.shop.reviews.average(:rate).to_i
+                  - @star_off = 5 - @star_on
+                  - @star_on.times do
+                    = image_tag "star-on.png"
+                  - @star_off.times do
+                    = image_tag "star-off.png"
+                .user-top-contents__shop-average-rate.font-weight-bold.pl-2
+                  = review.shop.reviews.average(:rate).to_f.round(2)
+              - else
+                .user-top-contents__shop-average-star
+                  - 5.times do
+                    = image_tag "star-off.png"
+                .user-top-contents__shop-average-rate.font-weight-bold.pl-2
+                  = "--"
           - else
-            = image_tag "no-image-index.png", class: "user-shop-first-image mx-auto d-block"
-      .user-shop-review__wrapper__content.col-5.col-lg-7
-        .user-shop-review__wrapper__content__shop-name.font-weight-bold
-          = link_to shop_path(review.shop.id) , class: "link shop-name" do
-            = review.shop.name
-        .user-shop-review__wrapper__content__shop-average.d-flex
-          - if review.rate.present?
-            .user-shop-review__wrapper__content__shop-average-star
-              - @star_on = review.rate
-              - @star_off = 5 - @star_on
-              - @star_on.times do
-                = image_tag "star-on.png"
-              - @star_off.times do
-                = image_tag "star-off.png"
-            .user-shop-review__wrapper__content__shop-average-star.pl-2
-              = review.rate.to_f.round(2)
-        .user-shop-review__wrapper__content__shop-text.mt-3
-          = review.text
+            = image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block"
+            .user-top-contents__shop-access.font-weight-bold
+              = review.shop.access.delete('駅')
+            .user-top-contents__shop-name.font-weight-bold
+              = review.shop.name
+            .user-top-contents__shop-average.d-flex
+              - if review.shop.reviews.present?
+                .user-top-contents__shop-average-star
+                  - @star_on = review.shop.reviews.average(:rate).to_i
+                  - @star_off = 5 - @star_on
+                  - @star_on.times do
+                    = image_tag "star-on.png"
+                  - @star_off.times do
+                    = image_tag "star-off.png"
+                .user-top-contents__shop-average-rate.font-weight-bold.pl-2
+                  = review.shop.reviews.average(:rate).to_f.round(2)
+              - else
+                .user-top-contents__shop-average-star
+                  - 5.times do
+                    = image_tag "star-off.png"
+                .user-top-contents__shop-average-rate.font-weight-bold.pl-2
+                  = "--"
