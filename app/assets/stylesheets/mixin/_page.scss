@@ -25,7 +25,7 @@
   } 
 }
 
-@mixin catchCopy-Responsive {
+@mixin catchCopy {
   .top-image {
     .catchCopy {
       font-size: 2rem;
@@ -37,7 +37,7 @@
   }
 }
 
-@mixin top-group-Responsive {
+@mixin top-group {
   .top-title {
     text-align: center;
   }
@@ -89,5 +89,20 @@
   opacity: 0.8; 
   transition: 0.3s;
 }
+
+@mixin upper-mypage {
+  .upper-mypage {
+    text-align: center;
+  }
+}
+
+@mixin user-like {
+  .user-top-contents__shop-image {
+    margin: 0 auto;
+  }
+}
+
+
+
 
 

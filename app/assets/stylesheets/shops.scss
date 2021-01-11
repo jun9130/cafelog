@@ -341,7 +341,7 @@ ul.tag-list, ul.access-list {
     }
 }
 
-.review-avatar {
+img.review-avatar {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -370,9 +370,10 @@ ul.tag-list, ul.access-list {
   color: $white;
 }
 
+//レスポンシブ
 @include sp {
-  @include catchCopy-Responsive;
-  @include top-group-Responsive;
+  @include catchCopy;
+  @include top-group;
   
   img.mainImage {
     width: 100%;
@@ -387,8 +388,8 @@ ul.tag-list, ul.access-list {
 }
 
 @include sm {
-  @include catchCopy-Responsive;
-  @include top-group-Responsive;
+  @include catchCopy;
+  @include top-group;
   
   .shop-data-group {
     max-width: 440px;
@@ -413,7 +414,7 @@ ul.tag-list, ul.access-list {
     }
   }
 
-  @include top-group-Responsive;
+  @include top-group;
 
   
   .shop-data-group {
@@ -475,7 +476,6 @@ ul.tag-list, ul.access-list {
     width: 400px;
     height: 330px;
   }
-
   img.otherImage {
     width: 165px;
     height: 165px;

@@ -1,13 +1,13 @@
 .mypage.container.my-5
-  .mypage-content.mb-5.p-5
+  .mypage-content.mb-5.p-md-5.p-3
     .upper-mypage
       .row
         .upper-mypage__left.col-12.col-lg-4
           .upper-mypage__left__avatar
             - if @user.user_image?
-              = image_tag @user.user_image_url, alt: "アバター", class: "avatar"
+              = image_tag @user.user_image_url, alt: "アバター", class: "user-avatar"
             - else
-              = image_tag "default_avatar.png", alt: "アバター", class: "avatar"
+              = image_tag "default_avatar.png", alt: "アバター", class: "user-avatar"
         .upper-mypage__right.col-12.col-lg-8
           .upper-mypage__right__username
             = @user.name

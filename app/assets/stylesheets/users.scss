@@ -8,24 +8,19 @@
     &__right__profile {
       padding-top: 48px;
     }
-    &__left__avatar {
-      overflow: hidden;
-      width: 250px;
-      height: 250px;
-      border: #fff 5px solid;
-      border-radius: 50%;
-      object-fit: cover;
-    }
 }
 
 .user-edit-button {
   @include edit-button
 }
 
-img.avatar {
-  display: block;
-  width: 100%;
-  height: auto;
+img.user-avatar {
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+  border: #fff 5px solid;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .tabs {
@@ -58,7 +53,6 @@ img.avatar {
     display: block;
   }
   li {
-  // padding: 20px;
   display: none;
   }
 }
@@ -68,17 +62,17 @@ img.avatar {
 .user-top-contents {
   flex-wrap: wrap;
   color: $black;
-
   &__shop {
     &-image {
+      width: 300px;
+      height: 300px;
       position: relative;
-      width: 100%;
     }
     &-access {
       color: $black;
       position: absolute;
-      left: 1rem;
-      top: 3rem;
+      left: 0;
+      top: 0;
       background-color: $green;
       border-radius: 2rem;
       color: $white;
@@ -91,12 +85,12 @@ img.avatar {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      margin: 0 0.5rem;
+      width: 100%;
     }
     &-average {
       color: $score;
       font-size: 1.2rem;
-      margin: 0 0.5rem;
+      width: 100%;
     }
   }
 }
@@ -106,89 +100,73 @@ img.avatar {
   width: 300px;
 }
 
-
-@include xl {
-  .upper-mypage {
-    &__left__avatar {
-      overflow: hidden;
-      width: 220px;
-      height: 220px;
-      border: #fff 5px solid;
-      border-radius: 50%;
-      object-fit: cover;
+// ユーザーレビュー
+.user-shop-review {
+  &__wrapper {
+    &__image {
+      width: 300px;
+      height: 300px;
+      position: relative;
     }
-  }
-  .user-top-contents-name {
-    margin: 0;
+    &__shop-access {
+      color: $black;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $green;
+      border-radius: 2rem;
+      color: $white;
+      padding: 0.65rem 0.65rem;
+      min-width: 5rem;
+      text-align: center;
+    }
   }
 }
 
-@include lg {
-  .upper-mypage {
-    &__left {
-      display: flex;
-      justify-content: center;
-      &__avatar {
-        overflow: hidden;
-        width: 180px;
-        height: 180px;
-        border: #fff 5px solid;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-    }
-    &__right {
-      display: flex;
-      justify-content: center;
-      &__username {
-        padding: 0 0 10px 0;
-      }
-      &__profile {
-        display: none;
-      }
-    }
-  }
- }
- @include md {
-  .user-top-contents__shop-access {
-    left: 10%;
-   }
-  .user-top-contents__shop-name {
-    margin: 0 3.5rem;
-  }
-  .user-top-contents__shop-average {
-    margin: 0 3.5rem;
-  }
 
-  .user-shop-first-image {
-    height: 200px;
-    width: 200px;
+@include sp {
+  @include upper-mypage;
+  @include user-like;
+
+  img.user-avatar {
+    width: 150px;
+    height: 150px;
+  }
+  .tabs {
+    font-size: 0.8rem;
   }
 }
 
 @include sm {
-  .user-top-contents__shop-name {
-    margin: 0 2.3rem;
-  }
-  .user-top-contents__shop-average {
-    margin: 0 2.3rem;
-  }
+  @include upper-mypage;
+  @include user-like;
 }
 
+@include md {
+  @include upper-mypage;
+  @include user-like;
+}
 
- //ユーザーのレビュー
- .user-shop-review__wrapper {
-   border-bottom: 2px solid #dfdfdf;
-   &__content__shop-average {
-    color: $score;
-    font-size: 1.2rem;
-  }
+@include lg {
+  @include upper-mypage;
  }
- 
- .shop-name {
-   color: $black;
-   &:hover {
-    color: $black;
-    @include link
+
+ @include xl {
+  .user-top-contents {
+    &__shop {
+      &-image {
+        width: 258px;
+        height: 258px;
+        position: relative;
+      }
+    }
+    img.user-shop-first-image {
+      height: 258px;
+      width: 258px;
+    }
   }
- }
+  img.user-avatar {
+    width: 220px;
+    height: 220px;
+  }
+}
