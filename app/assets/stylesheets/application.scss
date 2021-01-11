@@ -5,10 +5,11 @@
 @import "modules/footer";
 @import "modules/header";
 @import "modules/flash";
+@import "devise";
+@import "pages";
+@import "reviews";
 @import "shops";
 @import "users";
-@import "devise";
-@import "reviews";
 
 .home {
   background-color: #f5f5f5;
