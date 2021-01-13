@@ -1,0 +1,14 @@
+<div class="top container my-5">
+  <div class="shop-search-result mb-5 p-md-5 p-3">
+    <h2 class="text-center font-weight-bold">
+      <%= @tag.name %>
+    </h2>
+    <p class="text-center">の検索結果</p>
+    <div class="shop-search-result-number">
+      <p class="text-center">
+        <%= @shops.length %>件表示
+      </p>
+      <%= render partial: 'modules/shops' %>
+    </div>    
+  </div>
+</div>
