@@ -1,0 +1,86 @@
+<div class="top-image">
+  <h1 class="catchCopy">
+    お気に入りの カフェ が<br class="sp">きっと 見つかる
+  </h1>
+</div>
+<div class="top container my-5">
+  <div class="top-group mb-5 p-md-5 p-3">
+    <div class="top-title">
+      <h3 class="font-weight-bold">タグから探す</h3>
+    </div>
+    <div class="tag-content row">
+      <ul class="tag-list p-3">
+        <li class="tag-item mt-2 mr-2 py-1 px-2">
+          <%= link_to "wi-fiあり", "/tags/1/shops" %>
+        </li>
+        <li class="tag-item mt-2 mr-2 py-1 px-2">
+          <%= link_to "電源あり", "tags/2/shops" %>
+        </li>
+        <li class="tag-item mt-2 mr-2 py-1 px-2">
+          <%= link_to "駅から徒歩5分", "tags/3/shops" %>
+        </li>
+        <li class="tag-item mt-2 mr-2 py-1 px-2">
+          <%= link_to "50席以上", "tags/4/shops" %>
+        </li>
+        <li class="tag-item mt-2 mr-2 py-1 px-2">
+          <%= link_to "禁煙", "tags/5/shops" %>
+        </li>
+        <li class="tag-item mt-2 mr-2 py-1 px-2">
+          <%= link_to "分煙", "tags/6/shops" %>
+        </li>
+        <li class="tag-item mt-2 mr-2 py-1 px-2">
+          <%= link_to "喫煙可", "tags/7/shops" %>
+        </li>
+        <li class="tag-item mt-2 mr-2 py-1 px-2">
+          <%= link_to "チェーン店", "tags/8/shops" %>
+        </li>
+        <li class="tag-item mt-2 mr-2 py-1 px-2">
+          <%= link_to "純喫茶", "tags/9/shops" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="top-group mb-5 p-md-5 p-3">
+    <div class="top-title">
+      <h3 class="font-weight-bold">アクセスから探す</h3>
+    </div>
+    <div class="access-content row">
+      <ul class="access-list p-3 font-weight-bold">
+        <li class="access-item mr-md-2 mr-3 mt-2">
+          <%= link_to "渋谷", "searches?utf8=✓&keyword=渋谷駅" %>
+        </li>
+        <li class="access-item mr-md-2 mr-3 mt-2">
+          <%= link_to "新宿", "searches?utf8=✓&keyword=新宿駅" %>
+        </li>
+        <li class="access-item mr-md-2 mr-3 mt-2">
+          <%= link_to "表参道", "searches?utf8=✓&keyword=表参道駅" %>
+        </li>
+        <li class="access-item mr-md-2 mr-3 mt-2">
+          <%= link_to "銀座", "searches?utf8=✓&keyword=銀座駅" %>
+        </li>
+        <li class="access-item mr-md-2 mr-3 mt-2">
+          <%= link_to "東京", "searches?utf8=✓&keyword=東京駅" %>
+        </li>
+        <li class="access-item mr-md-2 mr-3 mt-2">
+          <%= link_to "原宿", "searches?utf8=✓&keyword=原宿駅" %>
+        </li>
+        <li class="access-item mr-md-2 mr-3 mt-2">
+          <%= link_to "池袋", "searches?utf8=✓&keyword=池袋駅" %>
+        </li>
+        <li class="access-item mr-md-2 mr-3 mt-2">
+          <%= link_to "下北沢", "searches?utf8=✓&keyword=下北沢駅" %>
+        </li>
+        <li class="access-item mr-md-2 mr-3 mt-2">
+          <%= link_to "横浜", "searches?utf8=✓&keyword=横浜駅" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="top-group mb-5 p-md-5 p-3">
+    <div class="top-title">
+      <h3 class="font-weight-bold">カフェ一覧</h3>
+      <%= render partial: 'modules/shops'  %>
+    </div>
+  </div>
+  <%= paginate(@shops) %>
+</div>
