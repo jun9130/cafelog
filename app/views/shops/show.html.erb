@@ -70,65 +70,27 @@
         <% end %>
       </div>
       <table class=" table ml-lg-3">
-        <tr>
-          <th>最寄駅
-            <td>
-              <%= @shop.access %>
-            </td>
-          </th>
-        </tr>
-        <tr>
-          <th>住所
-            <td>
-              <%= @shop.address %>
-            </td>
-          </th>
-        </tr>
-        <tr>
-          <th>営業時間
-            <td>
-              <%= @shop.business_hours %>
-            </td>
-          </th>
-        </tr>
-        <tr>
-          <th>定休日
-            <td>
-              <%= @shop.holiday %>
-            </td>
-          </th>
-        </tr>
-        <tr>
-          <th>席数
-            <td>
-              <%= "#{@shop.seat}席" %>
-            </td>
-          </th>
-        </tr>
-        <tr>
-          <th>タグ
-            <td>
-              <% @shop.tags.each do |tag| %>
-                <div class="tag-name">
-                  <%= link_to tag.name, tag_shops_path(tag_id: tag.id),class: "tag-name-button" %>
-                </div>
-              <% end %>
-            </td>
-          </th>
-        </tr>
-        <tr>
-          <th>お気に入り
-            <td>
-              <% if user_signed_in? %>
-                <%= render partial: 'like' %>
-              <% else %>
-                <i class="fas fa-heart like-button">
-                  <%= "#{@shop.likes.count}" %>
-                </i>
-              <% end %>
-            </td>
-          </th>
-        </tr>
+        <tr><th>最寄駅<td><%= @shop.access %></td></th></tr>
+        <tr><th>住所<td><%= @shop.address %></td></th></tr>
+        <tr><th>営業時間<td><%= @shop.business_hours %></td></th></tr>
+        <tr><th>定休日<td><%= @shop.holiday %></td></th></tr>
+        <tr><th>席数<td><%= "#{@shop.seat}席" %></td></th></tr>
+        <tr><th>タグ<td>
+          <% @shop.tags.each do |tag| %>
+            <div class="tag-name">
+              <%= link_to tag.name, tag_shops_path(tag_id: tag.id),class: "tag-name-button" %>
+            </div>
+          <% end %>
+        </td></th></tr>
+        <tr><th>お気に入り<td>
+          <% if user_signed_in? %>
+            <%= render partial: 'like' %>
+          <% else %>
+            <i class="fas fa-heart like-button">
+              <%= "#{@shop.likes.count}" %>
+            </i>
+          <% end %>
+        </td></th></tr>
       </table>
     </div>
     <div class="shop-data-other-images">
