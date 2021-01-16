@@ -1,0 +1,60 @@
+<div class="mypage container my-5">
+  <div class="mypage-content.mb-5 p-md-5 p-3">
+    <div class="upper-mypage">
+      <div class="row">
+        <div class="upper-mypage__left col-12 col-lg-4">
+          <div class="upper-mypage__left__avatar">
+            <% if @user.user_image? %>
+              <%= image_tag @user.user_image_url, alt: "アバター", class: "user-avatar" %>
+            <% else %>
+              <%= image_tag "default_avatar.png", alt: "アバター", class: "user-avatar" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="upper-mypage__right col-12 col-lg-8">
+          <div class="upper-mypage__right__username">
+            <%= @user.name %>
+            <% if user_signed_in? && @user.id == current_user.id %>
+              <%= link_to "編集", edit_user_path(current_user), class: "user-edit-button float-right" %>
+            <% end %>
+          </div>
+          <div class="upper-mypage__right__profile">
+            <%= @user.profile_description %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lower-mypage mt-5">
+      <div class="lower-mypage-tab">
+        <div class="tabs">
+          <li><a href="" class="active">登録したカフェ</a></li>
+          <li><a href="">お気に入り</a></li> 
+          <li><a href="">レビュー</a></li>
+        </div>
+        <div class="mypage-contents">
+          <li class="active">
+            <% if @shops.present? %>
+              <%= render partial: 'modules/shops' %>
+            <% else %>
+              登録したカフェはありません。
+            <% end %>
+          </li>
+          <li>
+            <% if @likes.present? %>
+              <%= render partial: 'user_like' %>
+            <% else %>
+              お気に入りはありません。
+            <% end %>
+          </li>
+          <li>
+            <% if @reviews.present? %>
+              <%= render partial: 'user_review' %>
+            <% else %>
+              レビューはありません。
+            <% end %>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
