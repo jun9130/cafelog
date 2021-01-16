@@ -1,0 +1,65 @@
+<div class="shop-edit container my-5">
+  <h1 class="shop__header text-center py-5">登録情報の編集</h1>
+  <div class="shop-form">
+    <%= form_for @shop do |f| %>
+      <div class="shop-form__form-group mx-auto col-4">
+        <%= f.label :name, "店名", class: "shop__form-label" %>
+        <%= f.text_field :name, class: "shop__form-input" %>
+      </div>
+      <div class="shop-form__form-group mx-auto col-4">
+        <%= f.label :access, "最寄駅", class: "shop__form-label" %>
+        <%= f.text_field :access, class: "shop__form-input" %>
+      </div>
+      <div class="shop-form__form-group mx-auto col-4">
+        <%= f.label :address, "住所", class: "shop__form-label"%>
+        <%= f.text_field :address, class: "shop__form-input" %>
+      </div>
+      <div class="shop-form__form-group mx-auto col-4">
+        <%= f.label :business_hours, "営業時間", class: "shop__form-label" %>
+        <%= f.text_field :business_hours, class: "shop__form-input" %>
+      </div>
+      <div class="shop-form__form-group mx-auto col-4">
+        <%= f.label :seat, "席数", class: "shop__form-label" %>
+        <%= f.text_field :seat, class: "shop__form-input" %>
+      </div>
+      <div class="shop-form__form-group mx-auto col-4">
+        <%= f.label "タグ 複数選択可", class: "shop__form-label" %>
+        <div class="tag-check-box">
+          <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <%= tag.label do %>
+              <%= tag.check_box %>
+              <%= tag.text %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-label">写真（5枚までアップロード）
+        <div class="image-upload">
+          <%= render partial: 'image-box', collection: @shop.shop_images, as: "photo" %>
+          <div id="preview"></div>
+          <% if @shop.shop_images.length <= 4 %>
+            <label for="shop_images_attributes_<%= @shop.shop_images.length %>", class="uploader", id="label-box--<%= @shop.shop_images.length %>", style="display:block">
+              <div class="sell-upload-drop-box">
+                <pre>クリックしてファイルをアップロード</pre>
+              </div>
+            </label>
+          <% end %>
+          <div class="hidden-content">
+            <%= f.fields_for :shop_images do |image| %>
+              <%= image.file_field :image , class: "hidden-field" %>
+              <% @shop.shop_images.length.upto(4) do |i| %>
+                <input id="shop_images_attributes_<%= i %>", class="update-image", name="shop[shop_images_attributes][<%= i %>][image]", type="file">
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="shop-form__form-group mx-auto col-4">
+        <%= f.submit ("変更する"), class: "shop-button mt-5" %>
+      </div>
+      <div class="shop-form__form-group mx-auto col-4 my-4">
+        <%= link_to "キャンセル", :back, class: "shop-button mb-5" %>
+      </div>
+    <% end %>
+  </div>
+</div>
