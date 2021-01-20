@@ -86,6 +86,9 @@ img.user-avatar {
       white-space: nowrap;
       text-overflow: ellipsis;
       width: 100%;
+      &:hover {
+        color: $link;
+      }
     }
     &-average {
       color: $score;
