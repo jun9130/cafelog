@@ -38,7 +38,7 @@
 }
 
 @mixin top-group {
-  .top-title {
+  .top-title > h3 {
     text-align: center;
   }
   ul.access-list, ul.tag-list {
