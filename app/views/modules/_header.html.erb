@@ -5,11 +5,6 @@
   </button>
   <div class="collapse navbar-collapse" id="Navbar">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <%= form_tag(searches_path, method: :get, class: 'search-form') do %>
-          <input class="fas search-form__input" id="keyword" name="keyword" placeholder= "キーワード検索" type="text" value="">
-        <% end %>
-      </li>
     </ul>
     <% if user_signed_in? %>
       <ul class="navbar-nav">
