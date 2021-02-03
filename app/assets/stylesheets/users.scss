@@ -37,7 +37,9 @@ img.user-avatar {
       border-top-left-radius: 5px;
     }
     a:hover:not(.active) {
-      @include link
+      @include link;
+      background-color: $green;
+      color: $white;
     }
     a.active {
       background-color: $green;
