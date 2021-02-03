@@ -7,18 +7,19 @@
   height: 500px;
   width: 100%;
   opacity: 0.9;
-
-  .catchCopy {
+  &-content {
     position: absolute;
     top: 50%;
     left: 50%;
-    // 折り返さない
     white-space: nowrap;
     -ms-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     margin:0;
     padding:0;
+  }
+
+  .catchCopy {
     color: $white;
     font-size: 2.5rem;
     font-weight: bold;
@@ -30,6 +31,50 @@
     }
   }
 }
+
+.search-box {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.search-form {
+  height: 64px;
+}
+
+input.search-keyword {
+  width: 90%;
+  border: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  &:focus {
+  outline: none;
+  border: none;
+  }
+  height: 64px;
+  margin-left: 10px;
+  vertical-align: top;
+  &::placeholder {
+    color: #85837a;
+    padding-left: 30px;
+    font-size: 1rem;
+  }
+}
+
+.search-button {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: $green;
+  color: $white;
+  height: 64px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: none;
+  i.fa-search {
+    margin: 0 auto;
+  }
+}
+
 
 ul.tag-list, ul.access-list {
   display: flex;
@@ -44,7 +89,6 @@ ul.tag-list, ul.access-list {
       @include link
     }
   }
-
   .access-item {
     background-color: $green;
     border-radius: 2rem;
@@ -113,16 +157,6 @@ ul.tag-list, ul.access-list {
   }
 }
 
-//検索窓
-.search-form__input {
-  width: 100%;
-  border: 1px solid #ced4da;
-  border-radius: 30px;
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  }
-}
 
 //カフェ登録
 .shop__header {
@@ -382,6 +416,9 @@ img.review-avatar {
   @include catchCopy;
   @include top-group;
   
+  .search-box {
+    width: 90%;
+  }
   img.mainImage {
     width: 100%;
   }

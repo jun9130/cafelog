@@ -1,7 +1,17 @@
 <div class="top-image">
-  <h1 class="catchCopy">
-    お気に入りの カフェ が<br class="sp">きっと 見つかる
-  </h1>
+  <div class="top-image-content">
+    <div class="catchCopy-box mb-4">
+      <h1 class="catchCopy">
+        お気に入りの カフェ が<br class="sp">きっと 見つかる
+      </h1>
+    </div>
+    <div class="search-box">
+      <%= form_tag(searches_path, method: :get, class: 'search-form') do %>
+          <input class="search-keyword" id="keyword" name="keyword" placeholder= "キーワード検索" type="text" value="">
+          <button class="search-button"><i class="fas fa-search fa-2x"></i></button>
+        <% end %>
+    </div>
+  </div>
 </div>
 <div class="top container my-5">
   <div class="top-group mb-5 p-md-5 p-3">
