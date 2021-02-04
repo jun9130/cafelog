@@ -61,7 +61,7 @@ img.user-avatar {
 
 
 //お気に入り
-.user-top-contents {
+.user-shops-content {
   flex-wrap: wrap;
   color: $black;
   &__shop {
@@ -96,6 +96,14 @@ img.user-avatar {
       color: $score;
       font-size: 1.2rem;
       width: 100%;
+    }
+  }
+  img.shop-first-image {
+    width: 300px;
+    height: 300px;
+    &:hover {
+      opacity: 0.7;
+      transition: 0.3s;
     }
   }
 }
@@ -154,10 +162,16 @@ img.user-avatar {
 
 @include lg {
   @include upper-mypage;
+  .user-shops-content {
+    img.shop-first-image {
+      width: 300px;
+      height: 300px;
+    }
+  }
  }
 
  @include xl {
-  .user-top-contents {
+  .user-shops-content {
     &__shop {
       &-image {
         width: 258px;
