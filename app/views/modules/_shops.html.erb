@@ -1,20 +1,20 @@
-<div class="top-contents row">
+<div class="shops-content row">
   <% @shops.each do |shop| %>
-    <div class="top-contents__shop font-weight-bold col-12 col-md-6 col-lg-4 py-5">
+    <div class="shops-content__shop font-weight-bold col-12 col-md-6 col-lg-4 py-5">
       <%= link_to shop_path(shop), class: "link"  do %>
-        <div class="top-contents__shop-image">
+        <div class="shops-content__shop-image">
           <% image = shop.shop_images[0] %>
           <% if shop.shop_images.present? %>
             <%= image_tag "#{image.image}", class: "shop-first-image mx-auto d-block"%>
-            <div class="top-contents__shop-access font-weight-bold">
+            <div class="shops-content__shop-access font-weight-bold">
               <%= shop.access.delete('駅') %>
             </div>
-            <div class="top-contents__shop-name font-weight-bold">
+            <div class="shops-content__shop-name font-weight-bold">
               <%= shop.name %>
             </div>
-            <div class="top-contents__shop-average d-flex">
+            <div class="shops-content__shop-average d-flex">
               <% if shop.reviews.present? %>
-                <div class="top-contents__shop-average-star">
+                <div class="shops-content__shop-average-star">
                   <% @star_on = shop.reviews.average(:rate).to_i %>
                   <% @star_off = 5 - @star_on %>
                   <% @star_on.times do %>
@@ -24,37 +24,37 @@
                     <%= image_tag "star-off.png" %>
                   <% end %>
                 </div>
-                <div class="top-contents__shop-average-rate font-weight-bold pl-2">
+                <div class="shops-content__shop-average-rate font-weight-bold pl-2">
                   <%= shop.reviews.average(:rate).to_f.round(2) %>
                 </div>
-                <div class="top-contents__shop-icon d-flex pl-3">
-                  <div class="top-contents__shop-icon-like">
+                <div class="shops-content__shop-icon d-flex pl-3">
+                  <div class="shops-content__shop-icon-like">
                     <i class="fas fa-heart fa-xs">
                       <%= "#{shop.likes.count}" %>
                     </i>
                   </div>
-                  <div class="top-contents__shop-icon-review pl-2">
+                  <div class="shops-content__shop-icon-review pl-2">
                     <i class="fas fa-comment-dots fa-xs">
                       <%= "#{shop.reviews.count}" %>
                     </i>
                   </div>
                 </div>
               <% else %>
-                <div class="top-contents__shop-average-star">
+                <div class="shops-content__shop-average-star">
                   <% 5.times do %>
                     <%= image_tag "star-off.png" %>
                   <% end %>
                 </div>
-                <div class="top-contents__shop-average-rate font-weight-bold pl-2">
+                <div class="shops-content__shop-average-rate font-weight-bold pl-2">
                   <%= "--" %>
                 </div>
-                <div class="top-contents__shop-icon d-flex pl-3">
-                  <div class="top-contents__shop-icon-like">
+                <div class="shops-content__shop-icon d-flex pl-3">
+                  <div class="shops-content__shop-icon-like">
                     <i class="fas fa-heart fa-xs">
                       <%= "#{shop.likes.count}" %>
                     </i>
                   </div>
-                  <div class="top-contents__shop-icon-review 
+                  <div class="shops-content__shop-icon-review 
                   pl-2">
                     <i class="fas fa-comment-dots fa-xs">
                       <%= "#{shop.reviews.count}" %>
@@ -65,15 +65,15 @@
             </div>      
           <% else%>
             <%= image_tag "no-image-index.png", class: "shop-first-image mx-auto d-block" %>
-            <div class="top-contents__shop-access font-weight-bold">
+            <div class="shops-content__shop-access font-weight-bold">
               <%= shop.access.delete('駅') %>
             </div>
-            <div class="top-contents__shop-name font-weight-bold">
+            <div class="shops-content__shop-name font-weight-bold">
               <%= shop.name %>
             </div>
-            <div class="top-contents__shop-average d-flex">
+            <div class="shops-content__shop-average d-flex">
               <% if shop.reviews.present? %>
-                <div class="top-contents__shop-average-star">
+                <div class="shops-content__shop-average-star">
                   <% @star_on = shop.reviews.average(:rate).to_i %>
                   <% @star_off = 5 - @star_on %>
                   <% @star_on.times do %>
@@ -83,37 +83,37 @@
                     <%= image_tag "star-off.png" %>
                   <% end %>
                 </div>
-                <div class="top-contents__shop-average-rate font-weight-bold pl-2">
+                <div class="shops-content__shop-average-rate font-weight-bold pl-2">
                   <%= shop.reviews.average(:rate).to_f.round(2) %>
                 </div>
-                <div class="top-contents__shop-icon d-flex pl-3">
-                  <div class="top-contents__shop-icon-like">
+                <div class="shops-content__shop-icon d-flex pl-3">
+                  <div class="shops-content__shop-icon-like">
                     <i class="fas fa-heart fa-xs">
                       <%= "#{shop.likes.count}" %>
                     </i>
                   </div>
-                  <div class="top-contents__shop-icon-review pl-2">
+                  <div class="shops-content__shop-icon-review pl-2">
                     <i class="fas fa-comment-dots fa-xs">
                       <%= "#{shop.reviews.count}" %>
                     </i>
                   </div>
                 </div>
               <% else %>
-                <div class="top-contents__shop-average-star">
+                <div class="shops-content__shop-average-star">
                   <% 5.times do %>
                     <%= image_tag "star-off.png" %>
                   <% end %>
                 </div>
-                <div class="top-contents__shop-average-rate font-weight-bold pl-2">
+                <div class="shops-content__shop-average-rate font-weight-bold pl-2">
                   <%= "--" %>
                 </div>
-                <div class="top-contents__shop-icon d-flex pl-3">
-                  <div class="top-contents__shop-icon-like">
+                <div class="shops-content__shop-icon d-flex pl-3">
+                  <div class="shops-content__shop-icon-like">
                     <i class="fas fa-heart fa-xs">
                       <%= "#{shop.likes.count}" %>
                     </i>
                   </div>
-                  <div class="top-contents__shop-icon-review pl-2">
+                  <div class="shops-content__shop-icon-review pl-2">
                     <i class="fas fa-comment-dots fa-xs">
                       <%= "#{shop.reviews.count}" %>
                     </i>
