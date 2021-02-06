@@ -151,8 +151,7 @@ ul.tag-list, ul.access-list {
     width: 300px;
     height: 300px;
     &:hover {
-      opacity: 0.7;
-      transition: 0.3s;
+      @include image;
     }
   }
 }
@@ -322,10 +321,18 @@ ul.tag-list, ul.access-list {
       white-space: nowrap; //項目改行しない
     }
   }
+
+  img.otherImage {
+    cursor: pointer;
+    &:hover {
+      @include image;
+    } 
+  }
+
 }
 
 .shop-edit-button {
-  @include edit-button
+  @include edit-button;
 }
 
 //タグ
@@ -338,7 +345,7 @@ ul.tag-list, ul.access-list {
   margin-bottom: 5px;
   font-size: 0.9rem;
   :hover {
-    @include link
+    @include link;
   }
   &-button {
     color: $white;
@@ -350,7 +357,7 @@ ul.tag-list, ul.access-list {
   color: rgb(224, 36, 94);
   &:hover {
     color: rgb(224, 36, 94);
-    @include link
+    @include link;
   }
 }
 
@@ -358,7 +365,7 @@ ul.tag-list, ul.access-list {
   color: rgb(101, 119, 134);
   &:hover {
     color: rgb(224, 36, 94);
-    @include link
+    @include link;
   }
 }
 
@@ -421,6 +428,7 @@ img.review-avatar {
   }
   img.mainImage {
     width: 100%;
+    height: 185px;
   }
   img.otherImage {
     width: 83px;

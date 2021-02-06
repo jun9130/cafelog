@@ -64,7 +64,7 @@
     <div class="shop-data__content d-lg-flex">
       <div class="shop-data-image">
         <% if @image %>
-          <%= image_tag @image.image_url, size: "500x330", alt: "メイン画像", class: "mainImage" %>
+          <%= image_tag @image.image_url, size: "500x330", alt: "メイン画像", id:"mainImage", class: "mainImage" %>
         <% else %>
           <%= image_tag "no-image-show.png", size: "500x330", alt: "メイン画像", class: "mainImage" %>
         <% end %>
@@ -99,9 +99,7 @@
       </div>
       <div class="shop-data-other-images__content">
         <% @images.each do |image| %>
-          <%= link_to image.image.url, 'data-lightbox': image.image do %>
-            <%= image_tag "#{image.image_url}", size: "200x165", class:"otherImage" if image.image? %>
-          <% end %>
+          <%= image_tag "#{image.image_url}", size: "200x165", class:"otherImage" if image.image? %>
         <% end %>
       </div>
     </div>
