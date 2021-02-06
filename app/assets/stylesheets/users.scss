@@ -102,8 +102,7 @@ img.user-avatar {
     width: 300px;
     height: 300px;
     &:hover {
-      opacity: 0.7;
-      transition: 0.3s;
+      @include image;
     }
   }
 }
