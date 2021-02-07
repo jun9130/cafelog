@@ -11,7 +11,7 @@
 }
 
 .user-edit-button {
-  @include edit-button
+  @include edit-button;
 }
 
 img.user-avatar {
@@ -37,7 +37,7 @@ img.user-avatar {
       border-top-left-radius: 5px;
     }
     a:hover:not(.active) {
-      @include link;
+      @include hover;
       background-color: $green;
       color: $white;
     }
@@ -102,7 +102,7 @@ img.user-avatar {
     width: 300px;
     height: 300px;
     &:hover {
-      @include image;
+      @include hover;
     }
   }
 }
