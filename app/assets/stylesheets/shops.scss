@@ -82,11 +82,11 @@ ul.tag-list, ul.access-list {
   .tag-item {
     background-color: $green;
     border-radius: 2rem;
+    &:hover {
+      @include tag-hover;
+    }
     &-link {
       font-size: 1rem;
-    }
-    :hover {
-      @include link
     }
   }
   .access-item {
@@ -95,12 +95,13 @@ ul.tag-list, ul.access-list {
     padding: 0.65rem 0.65rem;
     min-width: 5rem;
     text-align: center;
+    &:hover {
+      @include tag-hover;
+    }
     &-link {
       font-size: 1rem;
     }
-    :hover {
-      @include link
-    }
+    
   }
 }
 
@@ -151,7 +152,7 @@ ul.tag-list, ul.access-list {
     width: 300px;
     height: 300px;
     &:hover {
-      @include image;
+      @include hover;
     }
   }
 }
@@ -193,7 +194,7 @@ ul.tag-list, ul.access-list {
     }
   }
   .shop-button {
-    @include shop-button
+    @include shop-button;
   }  
 }
 
@@ -210,7 +211,7 @@ ul.tag-list, ul.access-list {
     border-radius: 30px;
   } 
   .shop-button {
-    @include shop-button
+    @include shop-button;
   }
 }
 
@@ -325,7 +326,7 @@ ul.tag-list, ul.access-list {
   img.otherImage {
     cursor: pointer;
     &:hover {
-      @include image;
+      @include hover;
     } 
   }
 
@@ -344,8 +345,8 @@ ul.tag-list, ul.access-list {
   padding: 1px 9px;
   margin-bottom: 5px;
   font-size: 0.9rem;
-  :hover {
-    @include link;
+  &:hover {
+    @include tag-hover;
   }
   &-button {
     color: $white;
@@ -357,7 +358,7 @@ ul.tag-list, ul.access-list {
   color: rgb(224, 36, 94);
   &:hover {
     color: rgb(224, 36, 94);
-    @include link;
+    @include hover;
   }
 }
 
@@ -365,7 +366,7 @@ ul.tag-list, ul.access-list {
   color: rgb(101, 119, 134);
   &:hover {
     color: rgb(224, 36, 94);
-    @include link;
+    @include hover;
   }
 }
 
@@ -405,7 +406,7 @@ img.review-avatar {
   background: $green;
   color: $white;
   &:hover {
-    @include button
+    @include button;
   }
 }
 
