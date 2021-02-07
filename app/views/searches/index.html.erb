@@ -1,9 +1,15 @@
 <div class="top container my-5">
   <div class="shop-search-result mb-5 p-md-5 p-3">
-    <h2 class="text-center font-weight-bold">
-    <%= @keyword %>
-    </h2>
-    <p class="text-center">の検索結果</p>
+    <% if  @keyword.present? %>
+      <h2 class="text-center font-weight-bold">
+      <%= @keyword %>
+      </h2>
+      <p class="text-center">の検索結果</p>
+    <% else %>
+      <h2 class="text-center font-weight-bold">
+      カフェ一覧
+      </h2>
+    <% end %>
     <% if  @shops.present? %>
       <div class="shop-search-result-number">
         <p class="text-center">
