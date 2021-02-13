@@ -105,6 +105,20 @@ ul.tag-list, ul.access-list {
   }
 }
 
+
+// トップページスクロール
+.top-group .shops-content__shop {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
+}
+.top-group .shops-content__shop.scrollEvent {
+  opacity: 1;
+  transform: none;
+}
+
+
+
 .shops-content {
   flex-wrap: wrap;
   color: $black;
