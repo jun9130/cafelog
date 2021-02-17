@@ -1,4 +1,4 @@
-# Cafelog
+# アプリ概要
 カフェの登録・検索・レビューができるWebサービスです。
 
 # URL
@@ -11,10 +11,9 @@ http://www.cafelog.work
   その際に、毎回カフェを検索する行為や「このカフェはパソコン作業をするのに適しているのだろうか？」などを調べるのは手間だと感じるようになり、カフェに特化したWebサービスがあれば便利だと考えて、今回このようなWebサービスを作りました。
 
 # 言語・使用技術
-- Ruby 2.5.1
-- Ruby on Rails 5.2.3
-- Haml
-- Sass
+- Ruby
+- Ruby on Rails
+- SCSS
 - Bootstrap
 - JavaScript
 - jQuery
