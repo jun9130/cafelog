@@ -3,7 +3,7 @@
 ![59ee6edee72f6ba81e9a1802f3cf7a85](https://user-images.githubusercontent.com/53207844/110472695-03a54a00-8121-11eb-8898-c0cfbdb073d2.gif)
 
 # URL
-http://www.cafelog.work
+[Cafelog](http://www.cafelog.work)
 - かんたんログインから登録不要で使用できます。
 
 # アプリ概要
