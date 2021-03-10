@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe User do
+RSpec.describe User do
   describe '#create' do
     it "名前,メールアドレス,パスワード,パスワード(確認)があれば登録できる" do
       user = build(:user)
@@ -38,6 +38,13 @@ describe User do
       expect(user.errors[:email]).to include("を入力してください")
     end
 
+    it "既に登録しているメールアドレスは登録できない" do
+      user = create(:user)
+      another_user = build(:user, email: user.email)
+      another_user.valid?
+      expect(another_user.errors[:email]).to include("はすでに存在します")
+    end
+
     it "パスワードがブランクだと登録できない" do
       user = build(:user, password: nil)
       user.valid?
@@ -50,23 +57,20 @@ describe User do
       expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
 
-    it "既に登録しているメールアドレスは登録できない" do
-      user = create(:user)
-      another_user = build(:user, email: user.email)
-      another_user.valid?
-      expect(another_user.errors[:email]).to include("はすでに存在します")
+    context "パスワードが6文字以上" do
+      it "登録できる " do
+        user = build(:user, password: "123456", password_confirmation: "123456")
+        user.valid?
+        expect(user).to be_valid
+      end
     end
 
-    it "パスワードが6文字以上だと登録できる " do
-      user = build(:user, password: "123456", password_confirmation: "123456")
-      user.valid?
-      expect(user).to be_valid
-    end
-
-    it "パスワードが5文字以下だと登録できない " do
-      user = build(:user, password: "12345", password_confirmation: "12345")
-      user.valid?
-      expect(user.errors[:password]).to include("は6文字以上で入力してください")
+    context "パスワードが5文字以下" do
+      it "登録できない " do
+        user = build(:user, password: "12345", password_confirmation: "12345")
+        user.valid?
+        expect(user.errors[:password]).to include("は6文字以上で入力してください")
+      end
     end
   end
 end

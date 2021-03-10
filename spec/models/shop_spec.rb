@@ -1,5 +1,6 @@
 require 'rails_helper'
-describe Shop do
+
+RSpec.describe Shop do
   describe '#create' do
     it "店名,最寄駅,住所,user_idがあれば登録ができる" do
       shop = build(:shop)

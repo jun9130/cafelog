@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe Review do
+RSpec.describe Review do
   describe '#create' do
     it "レビュー,user_id,shop_idがあれば登録ができる" do
       review = build(:review)
